@@ -1,0 +1,3 @@
+displayName = Visual Accessories
+author = Mathew, Drædon Gaming
+version = 0.1
