@@ -1,8 +1,8 @@
-That's a nice accessory it seems, only it doesn't appear on your character!
+Have you ever worn an accessory, only to realize it doesn't appear on your character?
 
-Visual Accessories provides a solution! Simply equip the item of your choosing and that's it, you can now wear it!
+Visual Accessories provides a solution! Simply equip the item of your choosing and that's it, it is now visible!
 
-This mod supports only vanilla, for Calamity's, Thorium's, []'s, []'s, etc. accessories, download this mod plus the respective addon.
+The base mod supports only vanilla, more addons with compatilibity for other mods are on the way!
 
 Sprite credits: Mathew (Maple)
 Code credits: Drædon Gaming

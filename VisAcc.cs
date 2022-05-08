@@ -1,14 +1,6 @@
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Reflection;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.Graphics.Shaders;
-using Terraria.Graphics.Effects;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace VisAcc
@@ -17,66 +9,33 @@ namespace VisAcc
 	{
         public static VisAcc instance;
 
-        public enum MessageType
-        {
-            SyncVisAccPlayer
-        }
-
-        public static Effect TrailEffect;
-
         public static string currentDate;
         public static int day;
         public static int month;
 
+
         public override void Load()
         {
-            instance = this;
-            /*if (Main.netMode != NetmodeID.Server)
+            if (Main.netMode != NetmodeID.Server)
             {
-                TrailEffect = GetEffect("Effects/TrailShader");
-
-                Ref<Effect> invertRef = new Ref<Effect>(GetEffect("Effects/Grayscale"));
-                Ref<Effect> shockwaveRef = new Ref<Effect>(GetEffect("Effects/Shockwave"));
-
-                Filters.Scene["VadesContentMod:Grayscale"] = new Filter(new ScreenShaderData(invertRef, "Main"), EffectPriority.VeryHigh);
-                Filters.Scene["VadesContentMod:Shockwave"] = new Filter(new ScreenShaderData(shockwaveRef, "Shockwave"), EffectPriority.VeryHigh);
-            }*/
-
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/AnkletOfTheWind", EquipType.Shoes, name : "EquipAnklet");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/LavaCharm", EquipType.Waist, name: "EquipLavaCharm");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/LuckyHorseshoe", EquipType.Shoes, name: "EquipLuckyHonse");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/MoltenCharm", EquipType.Shield, name: "EquipMoltCharm");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/NeptunesShell", EquipType.Shield, name: "EquipNepShell");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/ObsidianHorseshoe", EquipType.Shoes, name: "EquipObsHonse");
+            }
 
             DateTime dateTime = DateTime.Now;
             currentDate = dateTime.ToString("dd/MM/yyyy");
             day = dateTime.Day;
             month = dateTime.Month;
+            base.Load();
         }
 
         public override void Unload()
         {
             instance = null;
         }
-
-        public override void PostSetupContent()
-        {
-            //if (ModContent.GetInstance<VisAccConfig>().DiscordRichPresence)
-            //{
-            //}
-        }
-
-        /*public override void HandlePacket(BinaryReader reader, int whoAmI)
-        {
-            MessageType messageType = (MessageType)reader.ReadByte();
-            byte playerNumber;
-            VisAccPlayer VisAccPlayer;
-            switch (messageType)
-            {
-                case MessageType.SyncVisAccPlayer:
-                    playerNumber = reader.ReadByte();
-                    VisAccPlayer = Main.player[playerNumber].GetModPlayer<VisAccPlayer>();
-                    break;
-
-                default:
-                    Logger.WarnFormat("Visual Accessories: Unknown Message Type: {0}", messageType);
-                    break;
-            }
-        }*/
     }
 }
