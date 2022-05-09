@@ -19,7 +19,7 @@ namespace VisAcc
                 }
                 if (i.type == ItemID.LavaCharm)
                 {
-                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipLavaCharm", EquipType.Waist);
+                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipLavaCharm", EquipType.Shield);
                 }
                 if (i.type == ItemID.LuckyHorseshoe)
                 {
@@ -27,11 +27,11 @@ namespace VisAcc
                 }
                 if (i.type == ItemID.MoltenCharm)
                 {
-                    player.shield = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipMoltCharm", EquipType.Waist);
+                    player.shield = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipMoltCharm", EquipType.Shield);
                 }
                 if (i.type == ItemID.NeptunesShell)
                 {
-                    player.shield = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipNepShell", EquipType.Waist);
+                    player.shield = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipNepShell", EquipType.Shield);
                 }
                 if (i.type == ItemID.ObsidianHorseshoe)
                 {
