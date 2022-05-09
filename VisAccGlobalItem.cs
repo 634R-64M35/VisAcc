@@ -1,6 +1,7 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using VisAcc.Items;
 
 namespace VisAcc
 {
@@ -26,15 +27,19 @@ namespace VisAcc
                 }
                 if (i.type == ItemID.MoltenCharm)
                 {
-                    player.shield = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipMoltCharm", EquipType.Shield);
+                    player.shield = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipMoltCharm", EquipType.Waist);
                 }
                 if (i.type == ItemID.NeptunesShell)
                 {
-                    player.shield = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipNepShell", EquipType.Shield);
+                    player.shield = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipNepShell", EquipType.Waist);
                 }
                 if (i.type == ItemID.ObsidianHorseshoe)
                 {
                     player.shoe = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipObsHonse", EquipType.Shoes);
+                }
+                if (i.type == ItemID.Aglet)
+                {
+                    player.shoe = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipAglet", EquipType.Shoes);
                 }
             }
         }
