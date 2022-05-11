@@ -19,7 +19,7 @@ namespace VisAcc
                 }
                 if (i.type == ItemID.LavaCharm)
                 {
-                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipLavaCharm", EquipType.Shield);
+                    player.shield = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipLavaCharm", EquipType.Shield);
                 }
                 if (i.type == ItemID.LuckyHorseshoe)
                 {
@@ -40,6 +40,26 @@ namespace VisAcc
                 if (i.type == ItemID.Aglet)
                 {
                     player.shoe = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipAglet", EquipType.Shoes);
+                }
+                if (i.type == ItemID.Compass)
+                {
+                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipCompass", EquipType.Waist);
+                }
+                if (i.type == ItemID.DepthMeter)
+                {
+                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipDepth", EquipType.Waist);
+                }
+                if (i.type == ItemID.DPSMeter)
+                {
+                    player.front = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipDPS", EquipType.Front);
+                }
+                if (i.type == ItemID.GPS)
+                {
+                    player.shield = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipGPS", EquipType.Shield);
+                }
+                if (i.type == ItemID.FishermansGuide)
+                {
+                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipFishGuide", EquipType.Waist);
                 }
             }
         }
