@@ -13,6 +13,11 @@ namespace VisAcc
         {
             foreach (Item i in player.armor)
             {
+                #region //Movement
+                if (i.type == ItemID.Aglet)
+                {
+                    player.shoe = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipAglet", EquipType.Shoes);
+                }
                 if (i.type == ItemID.AnkletoftheWind)
                 {
                     player.shoe = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipAnklet", EquipType.Shoes);
@@ -37,30 +42,82 @@ namespace VisAcc
                 {
                     player.shoe = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipObsHonse", EquipType.Shoes);
                 }
-                if (i.type == ItemID.Aglet)
+                #endregion
+
+                #region //Informational
+                if (i.type == ItemID.DepthMeter)
                 {
-                    player.shoe = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipAglet", EquipType.Shoes);
+                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipDepth", EquipType.Waist);
                 }
                 if (i.type == ItemID.Compass)
                 {
                     player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipCompass", EquipType.Waist);
                 }
-                if (i.type == ItemID.DepthMeter)
+                if (i.type == ItemID.Radar)
                 {
-                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipDepth", EquipType.Waist);
+                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipRadar", EquipType.Face);
+                }
+                if (i.type == ItemID.LifeformAnalyzer)
+                {
+                    player.back = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipLifeAnalyzer", EquipType.Back);
+                }
+                if (i.type == ItemID.TallyCounter)
+                {
+                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipTally", EquipType.Waist);
+                }
+                if (i.type == ItemID.MetalDetector)
+                {
+                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipMetal", EquipType.Waist);
+                }
+                if (i.type == ItemID.Stopwatch)
+                {
+                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipStopwatch", EquipType.Waist);
                 }
                 if (i.type == ItemID.DPSMeter)
                 {
                     player.front = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipDPS", EquipType.Front);
                 }
-                if (i.type == ItemID.GPS)
-                {
-                    player.shield = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipGPS", EquipType.Shield);
-                }
                 if (i.type == ItemID.FishermansGuide)
                 {
                     player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipFishGuide", EquipType.Waist);
                 }
+                if (i.type == ItemID.WeatherRadio)
+                {
+                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipRadio", EquipType.Face);
+                }
+                if (i.type == ItemID.Sextant)
+                {
+                    player.shield = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipSextant", EquipType.Shield);
+                }
+                if (i.type == ItemID.GPS)
+                {
+                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipGPS", EquipType.Face);
+                }
+                if (i.type == ItemID.REK)
+                {
+                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipREK", EquipType.Face);
+                }
+                if (i.type == ItemID.GoblinTech)
+                {
+                    player.front = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipGoblin", EquipType.Front);
+                }
+                if (i.type == ItemID.FishFinder)
+                {
+                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipFishFinder", EquipType.Face);
+                }
+                if (i.type == ItemID.PDA)
+                {
+                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipPDA", EquipType.Waist);
+                }
+                if (i.type == ItemID.MechanicalLens)
+                {
+                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipLens", EquipType.Face);
+                }
+                if (i.type == ItemID.LaserRuler)
+                {
+                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipMechRuler", EquipType.Waist);
+                }
+                #endregion
             }
         }
     }
