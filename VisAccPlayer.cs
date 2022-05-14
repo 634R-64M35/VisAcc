@@ -14,7 +14,11 @@ namespace VisAcc
 		{
 			return Player.name != "Mathew" ?
 				Player.name != "Maple" ?
+				Player.name != "Draedon" ?
+				Player.name != "Draedon Gaming" ?
 				Enumerable.Empty<Item>()
+				: new[] { new Item(ModContent.ItemType<CatEars>()) }
+				: new[] { new Item(ModContent.ItemType<CatEars>()) }
 				: new[] { new Item(ModContent.ItemType<MathewsStylishBowtie>()) }
 				: new[] { new Item(ModContent.ItemType<MathewsStylishBowtie>()) };
 		}

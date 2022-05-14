@@ -45,6 +45,11 @@ namespace VisAcc
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/PDA", EquipType.Waist, name: "EquipPDA");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/MechanicalLens", EquipType.Face, name: "EquipLens");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/MechanicalRuler", EquipType.Waist, name: "EquipMechRuler");
+                //Health and Mana
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/CelestialMagnet", EquipType.Waist, name: "EquipCelMagnet");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/CelestialEmblem", EquipType.Waist, name: "EquipCelEmblem");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/MagnetFlower", EquipType.Waist, name: "EquipMagnetFlower");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/PhilosophersStone", EquipType.Waist, name: "EquipPhilStone");
             }
 
             DateTime dateTime = DateTime.Now;

@@ -118,6 +118,26 @@ namespace VisAcc
                     player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipMechRuler", EquipType.Waist);
                 }
                 #endregion
+
+                #region //Health and Mana
+                if (i.type == ItemID.CelestialMagnet)
+                {
+                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipCelMagnet", EquipType.Waist);
+                }
+                if (i.type == ItemID.CelestialEmblem)
+                {
+                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipCelEmblem", EquipType.Waist);
+                }
+                if (i.type == ItemID.MagnetFlower)
+                {
+                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipMagnetFlower", EquipType.Waist);
+                }
+                if (i.type == ItemID.PhilosophersStone)
+                {
+                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipPhilStone", EquipType.Waist);
+                }
+                #endregion
+
             }
         }
     }
