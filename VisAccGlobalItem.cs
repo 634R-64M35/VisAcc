@@ -83,7 +83,7 @@ namespace VisAcc
                 }
                 if (i.type == ItemID.WeatherRadio)
                 {
-                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipRadio", EquipType.Face);
+                    player.beard = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipRadio", EquipType.Beard);
                 }
                 if (i.type == ItemID.Sextant)
                 {
@@ -134,10 +134,57 @@ namespace VisAcc
                 }
                 if (i.type == ItemID.PhilosophersStone)
                 {
-                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipPhilStone", EquipType.Waist);
+                    player.neck = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipPhilStone", EquipType.Neck);
                 }
                 #endregion
 
+                #region //Combat
+                if (i.type == ItemID.AdhesiveBandage)
+                {
+                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipBandage", EquipType.Face);
+                }
+                if (i.type == ItemID.AnkhCharm)
+                {
+                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipAnkh", EquipType.Waist);
+                }
+                /*if (i.type == ItemID.ArmorBracing)
+                {
+                    player.front = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipBracing", EquipType.Front);
+                }
+                if (i.type == ItemID.AvengerEmblem)
+                {
+                    player.shield = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipAvenger", EquipType.Shield);
+                }*/
+                if (i.type == ItemID.Bezoar)
+                {
+                    player.handon = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipBezoar", EquipType.HandsOn);
+                }
+                if (i.type == ItemID.CelestialStone)
+                {
+                    player.neck = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipCelStone", EquipType.Neck);
+                }
+                if (i.type == ItemID.CountercurseMantra)
+                {
+                    player.shield  = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipMantra", EquipType.Shield);
+                }
+                /*if (i.type == ItemID.DestroyerEmblem)
+                {
+                    player.shield = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipDestroy", EquipType.Shield);
+                }*/
+                if (i.type == ItemID.EyeoftheGolem)
+                {
+                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipGolem", EquipType.Face);
+                }
+                if (i.type == ItemID.FastClock)
+                {
+                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipFastClock", EquipType.Waist);
+                }
+                if (i.type == ItemID.FleshKnuckles)
+                {
+                    player.handon = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipFleshOn", EquipType.HandsOn);
+                    player.handoff = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipFleshOff", EquipType.HandsOff);
+                }
+                #endregion
             }
         }
     }

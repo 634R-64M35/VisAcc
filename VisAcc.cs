@@ -12,8 +12,6 @@ namespace VisAcc
         public static string currentDate;
         public static int day;
         public static int month;
-
-
         public override void Load()
         {
             if (Main.netMode != NetmodeID.Server)
@@ -36,7 +34,7 @@ namespace VisAcc
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/Stopwatch", EquipType.Waist, name: "EquipStopwatch");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/DPSMeter", EquipType.Front, name: "EquipDPS");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/FishermansPocketGuide", EquipType.Waist, name: "EquipFishGuide");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/WeatherRadio", EquipType.Face, name: "EquipRadio");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/WeatherRadio", EquipType.Beard, name: "EquipRadio");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/Sextant", EquipType.Shield, name: "EquipSextant");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/GPS", EquipType.Face, name: "EquipGPS");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/REK3000", EquipType.Face, name: "EquipREK");
@@ -49,7 +47,20 @@ namespace VisAcc
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/CelestialMagnet", EquipType.Waist, name: "EquipCelMagnet");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/CelestialEmblem", EquipType.Waist, name: "EquipCelEmblem");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/MagnetFlower", EquipType.Waist, name: "EquipMagnetFlower");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/PhilosophersStone", EquipType.Waist, name: "EquipPhilStone");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/PhilosophersStone", EquipType.Neck, name: "EquipPhilStone");
+                //Combat
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/AdhesiveBandage", EquipType.Face, name: "EquipBandage");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/AnkhCharm", EquipType.Waist, name: "EquipAnkh");
+                //EquipLoader.AddEquipTexture(this, "VisAcc/Textures/ArmorBracing", EquipType.Front, name: "EquipBracing");
+                //EquipLoader.AddEquipTexture(this, "VisAcc/Textures/AvengerEmblem", EquipType.Shield, name: "EquipAvenger");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/Bezoar", EquipType.HandsOn, name: "EquipBezoar");
+                //EquipLoader.AddEquipTexture(this, "VisAcc/Textures/CelestialStone", EquipType.Neck, name: "EquipCelStone");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/CountercurseMantra", EquipType.Shield, name: "EquipMantra");
+                //EquipLoader.AddEquipTexture(this, "VisAcc/Textures/DestroyerEmblem", EquipType.Shield, name: "EquipDestroy");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/EyeoftheGolem", EquipType.Face, name: "EquipGolem");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/FastClock", EquipType.Waist, name: "EquipFastClock");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/FleshKnucklesHandsOn", EquipType.HandsOn, name: "EquipFleshOn");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/FleshKnucklesHandsOff", EquipType.HandsOff, name: "EquipFleshOff");
             }
 
             DateTime dateTime = DateTime.Now;
