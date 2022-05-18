@@ -141,7 +141,7 @@ namespace VisAcc
                 #region //Combat
                 if (i.type == ItemID.AdhesiveBandage)
                 {
-                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipBandage", EquipType.Face);
+                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipAdhBandage", EquipType.Face);
                 }
                 if (i.type == ItemID.AnkhCharm)
                 {
@@ -159,10 +159,18 @@ namespace VisAcc
                 {
                     player.handon = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipBezoar", EquipType.HandsOn);
                 }
-                if (i.type == ItemID.CelestialStone)
+                if (i.type == ItemID.MoonCharm)
+                {
+                    player.neck = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipMoonCharm", EquipType.Neck);
+                }
+                if (i.type == ItemID.MoonShell)
+                {
+                    player.neck = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipMoonShell", EquipType.Neck);
+                }
+                /*if (i.type == ItemID.CelestialStone)
                 {
                     player.neck = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipCelStone", EquipType.Neck);
-                }
+                }*/
                 if (i.type == ItemID.CountercurseMantra)
                 {
                     player.shield  = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipMantra", EquipType.Shield);
@@ -183,6 +191,22 @@ namespace VisAcc
                 {
                     player.handon = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipFleshOn", EquipType.HandsOn);
                     player.handoff = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipFleshOff", EquipType.HandsOff);
+                }
+                if (i.type == ItemID.HoneyComb)
+                {
+                    player.neck = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipHoneyComb", EquipType.Neck);
+                }
+                if (i.type == ItemID.MedicatedBandage)
+                {
+                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipMedBandage", EquipType.Face);
+                }
+                if (i.type == ItemID.Megaphone)
+                {
+                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipMegaphone", EquipType.Face);
+                }
+                if (i.type == ItemID.Nazar)
+                {
+                    player.neck = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipNazar", EquipType.Neck);
                 }
                 #endregion
             }
