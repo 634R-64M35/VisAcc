@@ -51,12 +51,13 @@ namespace VisAcc
                 //Combat
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/AdhesiveBandage", EquipType.Face, name: "EquipAdhBandage");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/AnkhCharm", EquipType.Waist, name: "EquipAnkh");
-                //EquipLoader.AddEquipTexture(this, "VisAcc/Textures/ArmorBracing", EquipType.Front, name: "EquipBracing");
-                //EquipLoader.AddEquipTexture(this, "VisAcc/Textures/AvengerEmblem", EquipType.Shield, name: "EquipAvenger");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/ArmorBracing", EquipType.Shield, name: "EquipBracing");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/AvengerEmblem", EquipType.Shield, name: "EquipAvenger");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/Bezoar", EquipType.HandsOn, name: "EquipBezoar");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/MoonCharm", EquipType.Neck, name: "EquipMoonCharm");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/MoonShell", EquipType.Neck, name: "EquipMoonShell");
-                //EquipLoader.AddEquipTexture(this, "VisAcc/Textures/CelestialStone", EquipType.Neck, name: "EquipCelStone");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/CelestialStone", EquipType.Neck, name: "EquipCelStone");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/CelestialShell", EquipType.Neck, name: "EquipCelShell");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/CountercurseMantra", EquipType.Shield, name: "EquipMantra");
                 //EquipLoader.AddEquipTexture(this, "VisAcc/Textures/DestroyerEmblem", EquipType.Shield, name: "EquipDestroy");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/EyeoftheGolem", EquipType.Face, name: "EquipGolem");
@@ -69,6 +70,9 @@ namespace VisAcc
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/Megaphone", EquipType.Face, name: "EquipMegaphone");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/Nazar", EquipType.Neck, name: "EquipNazar");
                 //EquipLoader.AddEquipTexture(this, "VisAcc/Textures/PocketMirror", EquipType.HandsOff, name: "EquipMirror");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/HerculesBeetle", EquipType.Waist, name: "EquipBeetle");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/NecromanticScroll", EquipType.Waist, name: "EquipScroll");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/PapyrusScarab", EquipType.Waist, name: "EquipScarab");
             }
 
             DateTime dateTime = DateTime.Now;

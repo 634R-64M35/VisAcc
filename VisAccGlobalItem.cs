@@ -147,14 +147,14 @@ namespace VisAcc
                 {
                     player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipAnkh", EquipType.Waist);
                 }
-                /*if (i.type == ItemID.ArmorBracing)
+                if (i.type == ItemID.ArmorBracing)
                 {
-                    player.front = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipBracing", EquipType.Front);
+                    player.shield = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipBracing", EquipType.Shield);
                 }
                 if (i.type == ItemID.AvengerEmblem)
                 {
                     player.shield = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipAvenger", EquipType.Shield);
-                }*/
+                }
                 if (i.type == ItemID.Bezoar)
                 {
                     player.handon = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipBezoar", EquipType.HandsOn);
@@ -167,10 +167,14 @@ namespace VisAcc
                 {
                     player.neck = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipMoonShell", EquipType.Neck);
                 }
-                /*if (i.type == ItemID.CelestialStone)
+                if (i.type == ItemID.CelestialStone)
                 {
                     player.neck = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipCelStone", EquipType.Neck);
-                }*/
+                }
+                if (i.type == ItemID.CelestialShell)
+                {
+                    player.neck = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipCelShell", EquipType.Neck);
+                }
                 if (i.type == ItemID.CountercurseMantra)
                 {
                     player.shield  = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipMantra", EquipType.Shield);
@@ -194,7 +198,7 @@ namespace VisAcc
                 }
                 if (i.type == ItemID.HoneyComb)
                 {
-                    player.neck = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipHoneyComb", EquipType.Neck);
+                    player.shield = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipHoneyComb", EquipType.Shield);
                 }
                 if (i.type == ItemID.MedicatedBandage)
                 {
@@ -207,6 +211,18 @@ namespace VisAcc
                 if (i.type == ItemID.Nazar)
                 {
                     player.neck = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipNazar", EquipType.Neck);
+                }
+                if (i.type == ItemID.HerculesBeetle)
+                {
+                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipBeetle", EquipType.Waist);
+                }
+                if (i.type == ItemID.NecromanticScroll)
+                {
+                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipScroll", EquipType.Waist);
+                }
+                if (i.type == ItemID.PapyrusScarab)
+                {
+                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipScarab", EquipType.Waist);
                 }
                 #endregion
             }
