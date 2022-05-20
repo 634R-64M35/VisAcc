@@ -212,6 +212,30 @@ namespace VisAcc
                 {
                     player.neck = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipNazar", EquipType.Neck);
                 }
+                if (i.type == ItemID.PocketMirror)
+                {
+                    player.handoff  = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipMirror", EquipType.HandsOff);
+                }
+                if (i.type == ItemID.PutridScent)
+                {
+                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipScent", EquipType.Waist);
+                }
+                if (i.type == ItemID.ReconScope)
+                {
+                    player.back = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipRecon", EquipType.Back);
+                }
+                if (i.type == ItemID.RifleScope)
+                {
+                    player.back = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipRifle", EquipType.Back);
+                }
+                if (i.type == ItemID.SniperScope)
+                {
+                    player.back = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipSniper", EquipType.Back);
+                }
+                if (i.type == ItemID.Vitamins)
+                {
+                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipVitamins", EquipType.Waist);
+                }
                 if (i.type == ItemID.HerculesBeetle)
                 {
                     player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipBeetle", EquipType.Waist);

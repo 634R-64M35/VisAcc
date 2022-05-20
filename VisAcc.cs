@@ -52,7 +52,7 @@ namespace VisAcc
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/AdhesiveBandage", EquipType.Face, name: "EquipAdhBandage");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/AnkhCharm", EquipType.Waist, name: "EquipAnkh");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/ArmorBracing", EquipType.Shield, name: "EquipBracing");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/AvengerEmblem", EquipType.Shield, name: "EquipAvenger");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/AvengerEmblem", EquipType.Neck, name: "EquipAvenger");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/Bezoar", EquipType.HandsOn, name: "EquipBezoar");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/MoonCharm", EquipType.Neck, name: "EquipMoonCharm");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/MoonShell", EquipType.Neck, name: "EquipMoonShell");
@@ -69,7 +69,18 @@ namespace VisAcc
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/MedicatedBandage", EquipType.Face, name: "EquipMedBandage");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/Megaphone", EquipType.Face, name: "EquipMegaphone");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/Nazar", EquipType.Neck, name: "EquipNazar");
-                //EquipLoader.AddEquipTexture(this, "VisAcc/Textures/PocketMirror", EquipType.HandsOff, name: "EquipMirror");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/PocketMirror", EquipType.HandsOff, name: "EquipMirror");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/PutridScent", EquipType.Waist, name: "EquipScent");
+                //EquipLoader.AddEquipTexture(this, "VisAcc/Textures/RangerEmblem", EquipType.Neck, name: "EquipRanger");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/ReconScope", EquipType.Back, name: "EquipRecon");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/RfileScope", EquipType.Back, name: "EquipRifle");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/SniperScope", EquipType.Back, name: "EquipSniper");
+                //EquipLoader.AddEquipTexture(this, "VisAcc/Textures/SorcererEmblem", EquipType.Neck, name: "EquipSorcerer");
+                //EquipLoader.AddEquipTexture(this, "VisAcc/Textures/SummonerEmblem", EquipType.Neck, name: "EquipSummoner");
+                //EquipLoader.AddEquipTexture(this, "VisAcc/Textures/ThePlan", EquipType.Face, name: "EquipPlan");
+                //EquipLoader.AddEquipTexture(this, "VisAcc/Textures/TrifoldMap", EquipType.Face, name: "EquipMap");
+                //EquipLoader.AddEquipTexture(this, "VisAcc/Textures/WarriorEmblem", EquipType.Neck, name: "EquipWarrior");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/Vitamins", EquipType.Waist, name: "EquipVitamins");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/HerculesBeetle", EquipType.Waist, name: "EquipBeetle");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/NecromanticScroll", EquipType.Waist, name: "EquipScroll");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/PapyrusScarab", EquipType.Waist, name: "EquipScarab");

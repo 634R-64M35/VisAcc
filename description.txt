@@ -8,3 +8,8 @@ Sprite credits: Mathew (Maple)
 Code credits: Draedon Gaming
 
 For any inquiries, suggestions, or bug reports, contact Draedon Gaming#1669 (with the AE combination instead of 'ae') on Discord.
+
+As with all code by me, this mod is 100% free and open source, this means you can modify and redistribute to your heart's content. 
+*However* please credit both Mathew for the sprites and me for the original code. It'd also be appreciated if you told me about it!
+
+You can find the public repository here: https://github.com/634R-64M35/VisAcc
