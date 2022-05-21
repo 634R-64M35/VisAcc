@@ -214,7 +214,7 @@ namespace VisAcc
                 }
                 if (i.type == ItemID.PocketMirror)
                 {
-                    player.handoff  = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipMirror", EquipType.HandsOff);
+                    player.waist  = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipMirror", EquipType.Waist);
                 }
                 if (i.type == ItemID.PutridScent)
                 {
