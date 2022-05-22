@@ -256,6 +256,17 @@ namespace VisAcc
                     player.back = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipCement", EquipType.Back);
                 }
                 #endregion
+
+                #region //Fishing
+                if (i.type == ItemID.AnglerEarring)
+                {
+                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipEarring", EquipType.Face);
+                }
+                if (i.type == ItemID.TackleBox)
+                {
+                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipTackle", EquipType.Waist);
+                }
+                #endregion
             }
         }
     }
