@@ -249,6 +249,13 @@ namespace VisAcc
                     player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipScarab", EquipType.Waist);
                 }
                 #endregion
+
+                #region //Construction
+                if (i.type == ItemID.PortableCementMixer)
+                {
+                    player.back = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipCement", EquipType.Back);
+                }
+                #endregion
             }
         }
     }

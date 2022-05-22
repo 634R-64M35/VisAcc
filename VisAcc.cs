@@ -84,6 +84,8 @@ namespace VisAcc
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/HerculesBeetle", EquipType.Waist, name: "EquipBeetle");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/NecromanticScroll", EquipType.Waist, name: "EquipScroll");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/PapyrusScarab", EquipType.Waist, name: "EquipScarab");
+                //Construction
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/PortableCementMixer", EquipType.Back, name: "EquipCement");
             }
 
             DateTime dateTime = DateTime.Now;
