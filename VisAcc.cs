@@ -3,19 +3,15 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace VisAcc
-{
-	public class VisAcc : Mod
-	{
+namespace VisAcc {
+	public class VisAcc : Mod {
         public static VisAcc instance;
 
         public static string currentDate;
         public static int day;
         public static int month;
-        public override void Load()
-        {
-            if (Main.netMode != NetmodeID.Server)
-            {
+        public override void Load() {
+            if (Main.netMode != NetmodeID.Server) {
                 //Movement
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/Aglet", EquipType.Shoes, name: "EquipAglet");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/AnkletOfTheWind", EquipType.Shoes, name : "EquipAnklet");
@@ -71,15 +67,15 @@ namespace VisAcc
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/Nazar", EquipType.Neck, name: "EquipNazar");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/PocketMirror", EquipType.Waist, name: "EquipMirror");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/PutridScent", EquipType.Waist, name: "EquipScent");
-                //EquipLoader.AddEquipTexture(this, "VisAcc/Textures/RangerEmblem", EquipType.Neck, name: "EquipRanger");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/RangerEmblem", EquipType.Neck, name: "EquipRanger");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/ReconScope", EquipType.Back, name: "EquipRecon");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/RifleScope", EquipType.Back, name: "EquipRifle");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/SniperScope", EquipType.Back, name: "EquipSniper");
-                //EquipLoader.AddEquipTexture(this, "VisAcc/Textures/SorcererEmblem", EquipType.Neck, name: "EquipSorcerer");
-                //EquipLoader.AddEquipTexture(this, "VisAcc/Textures/SummonerEmblem", EquipType.Neck, name: "EquipSummoner");
-                //EquipLoader.AddEquipTexture(this, "VisAcc/Textures/ThePlan", EquipType.Face, name: "EquipPlan");
-                //EquipLoader.AddEquipTexture(this, "VisAcc/Textures/TrifoldMap", EquipType.Face, name: "EquipMap");
-                //EquipLoader.AddEquipTexture(this, "VisAcc/Textures/WarriorEmblem", EquipType.Neck, name: "EquipWarrior");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/SorcererEmblem", EquipType.Neck, name: "EquipSorcerer");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/SummonerEmblem", EquipType.Neck, name: "EquipSummoner");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/ThePlan", EquipType.Waist, name: "EquipPlan");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/TrifoldMap", EquipType.Waist, name: "EquipMap");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/WarriorEmblem", EquipType.Neck, name: "EquipWarrior");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/Vitamins", EquipType.Waist, name: "EquipVitamins");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/HerculesBeetle", EquipType.Waist, name: "EquipBeetle");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/NecromanticScroll", EquipType.Waist, name: "EquipScroll");
@@ -89,6 +85,8 @@ namespace VisAcc
                 //Fishing
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/AnglerEarring", EquipType.Face, name: "EquipEarring");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/TackleBox", EquipType.Waist, name: "EquipTackle");
+                //Yoyos
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/YoyoBag", EquipType.Waist, name: "EquipYoyoBag");
             }
 
             DateTime dateTime = DateTime.Now;
@@ -98,8 +96,7 @@ namespace VisAcc
             base.Load();
         }
 
-        public override void Unload()
-        {
+        public override void Unload() {
             instance = null;
         }
     }
