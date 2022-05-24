@@ -135,9 +135,9 @@ namespace VisAcc {
                 if (i.type == ItemID.CountercurseMantra) {
                     player.shield  = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipMantra", EquipType.Shield);
                 }
-                /*if (i.type == ItemID.DestroyerEmblem) {
-                    player.shield = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipDestroy", EquipType.Shield);
-                }*/
+                if (i.type == ItemID.DestroyerEmblem) {
+                    player.neck = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipDestroy", EquipType.Neck);
+                }
                 if (i.type == ItemID.EyeoftheGolem) {
                     player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipGolem", EquipType.Face);
                 }
@@ -149,7 +149,11 @@ namespace VisAcc {
                     player.handoff = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipFleshOff", EquipType.HandsOff);
                 }
                 if (i.type == ItemID.HoneyComb) {
-                    player.shield = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipHoneyComb", EquipType.Shield);
+                    player.neck = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipComb", EquipType.Neck);
+                }
+                if (i.type == ItemID.MagmaStone)
+                {
+                    player.neck = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipMagmaStone", EquipType.Neck);
                 }
                 if (i.type == ItemID.MedicatedBandage) {
                     player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipMedBandage", EquipType.Face);
