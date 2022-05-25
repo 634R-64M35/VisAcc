@@ -258,6 +258,54 @@ namespace VisAcc {
                     player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipThing", EquipType.Face);
                 }
                 #endregion
+
+                #region //Golf Balls
+                if (i.type == ItemID.GolfBall) {
+                    player.head = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipWhite", EquipType.Head);
+                }
+                if (i.type == ItemID.GolfBallDyedBlack) {
+                    player.head = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipBlack", EquipType.Head);
+                }
+                if (i.type == ItemID.GolfBallDyedBlue) {
+                    player.head = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipBlue", EquipType.Head);
+                }
+                if (i.type == ItemID.GolfBallDyedBrown) {
+                    player.head = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipBrown", EquipType.Head);
+                }
+                if (i.type == ItemID.GolfBallDyedCyan) {
+                    player.head = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipCyan", EquipType.Head);
+                }
+                if (i.type == ItemID.GolfBallDyedGreen) {
+                    player.head = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipGreen", EquipType.Head);
+                }
+                if (i.type == ItemID.GolfBallDyedLimeGreen) {
+                    player.head = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipLime", EquipType.Head);
+                }
+                if (i.type == ItemID.GolfBallDyedOrange) {
+                    player.head = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipOrange", EquipType.Head);
+                }
+                if (i.type == ItemID.GolfBallDyedPink) {
+                    player.head = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipPink", EquipType.Head);
+                }
+                if (i.type == ItemID.GolfBallDyedPurple) {
+                    player.head = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipPurple", EquipType.Head);
+                }
+                if (i.type == ItemID.GolfBallDyedRed) {
+                    player.head = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipRed", EquipType.Head);
+                }
+                if (i.type == ItemID.GolfBallDyedSkyBlue) {
+                    player.head = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipSkyBlue", EquipType.Head);
+                }
+                if (i.type == ItemID.GolfBallDyedTeal) {
+                    player.head = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipTeal", EquipType.Head);
+                }
+                if (i.type == ItemID.GolfBallDyedViolet) {
+                    player.head = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipViolet", EquipType.Head);
+                }
+                if (i.type == ItemID.GolfBallDyedYellow) {
+                    player.head = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipYellow", EquipType.Head);
+                }
+                #endregion
             }
         }
     }

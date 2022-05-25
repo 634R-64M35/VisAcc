@@ -95,6 +95,22 @@ namespace VisAcc {
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/GregBook", EquipType.Waist, name: "EquipCordage");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/GuideVoodooDoll", EquipType.Waist, name: "EquipGuide");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/RadioThing", EquipType.Face, name: "EquipThing");
+                //Golf Balls
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/GolfBallWhite", EquipType.Head, name: "EquipWhite");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/GolfBallBlack", EquipType.Head, name: "EquipBlack");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/GolfBallBlue", EquipType.Head, name: "EquipBlue");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/GolfBallBrown", EquipType.Head, name: "EquipBrown");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/GolfBallCyan", EquipType.Head, name: "EquipCyan");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/GolfBallGreen", EquipType.Head, name: "EquipGreen");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/GolfBallLime", EquipType.Head, name: "EquipLime");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/GolfBallOrange", EquipType.Head, name: "EquipOrange");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/GolfBallPink", EquipType.Head, name: "EquipPink");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/GolfBallPurple", EquipType.Head, name: "EquipPurple");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/GolfBallRed", EquipType.Head, name: "EquipRed");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/GolfBallSkyBlue", EquipType.Head, name: "EquipSkyBlue");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/GolfBallTeal", EquipType.Head, name: "EquipTeal");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/GolfBallViolet", EquipType.Head, name: "EquipViolet");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/GolfBallYellow", EquipType.Head, name: "EquipYellow");
             }
 
             DateTime dateTime = DateTime.Now;
