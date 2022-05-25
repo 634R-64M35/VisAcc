@@ -231,6 +231,33 @@ namespace VisAcc {
                     player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipYoyoBag", EquipType.Waist);
                 }
                 #endregion
+
+                #region //Miscellaneous
+                if (i.type == ItemID.ClothierVoodooDoll) {
+                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipClothier", EquipType.Waist);
+                }
+                if (i.type == ItemID.CoinRing) {
+                    player.handon = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipCoin", EquipType.HandsOn);
+                }
+                /*if (i.type == ItemID.DiscountCard) {
+                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipCard", EquipType.Waist);
+                }*/
+                if (i.type == ItemID.GoldRing) {
+                    player.handon = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipGold", EquipType.HandsOn);
+                }
+                if (i.type == ItemID.GreedyRing) {
+                    player.handon = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipGreedy", EquipType.HandsOn);
+                }
+                if (i.type == ItemID.CordageGuide) {
+                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipCordage", EquipType.Waist);
+                }
+                if (i.type == ItemID.GuideVoodooDoll) {
+                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipGuide", EquipType.Waist);
+                }
+                if (i.type == ItemID.DontStarveShaderItem) {
+                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipThing", EquipType.Face);
+                }
+                #endregion
             }
         }
     }

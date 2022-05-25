@@ -6,7 +6,6 @@ using Terraria.ModLoader;
 namespace VisAcc {
 	public class VisAcc : Mod {
         public static VisAcc instance;
-
         public static string currentDate;
         public static int day;
         public static int month;
@@ -87,13 +86,21 @@ namespace VisAcc {
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/TackleBox", EquipType.Waist, name: "EquipTackle");
                 //Yoyos
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/YoyoBag", EquipType.Waist, name: "EquipYoyoBag");
+                //Miscellaneous
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/ClothierVoodooDoll", EquipType.Waist, name: "EquipClothier");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/CoinRing", EquipType.HandsOn, name: "EquipCoin");
+                //EquipLoader.AddEquipTexture(this, "VisAcc/Textures/DiscountCard", EquipType.Waist, name: "EquipCard");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/GoldRing", EquipType.HandsOn, name: "EquipGold");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/GreedyRing", EquipType.HandsOn, name: "EquipGreedy");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/GregBook", EquipType.Waist, name: "EquipCordage");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/GuideVoodooDoll", EquipType.Waist, name: "EquipGuide");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/RadioThing", EquipType.Face, name: "EquipThing");
             }
 
             DateTime dateTime = DateTime.Now;
             currentDate = dateTime.ToString("dd/MM/yyyy");
             day = dateTime.Day;
             month = dateTime.Month;
-            base.Load();
         }
 
         public override void Unload() {
