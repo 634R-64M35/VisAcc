@@ -261,49 +261,73 @@ namespace VisAcc {
 
                 #region //Golf Balls
                 if (i.type == ItemID.GolfBall) {
-                    player.head = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipWhite", EquipType.Head);
+                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipWhite", EquipType.Face);
                 }
                 if (i.type == ItemID.GolfBallDyedBlack) {
-                    player.head = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipBlack", EquipType.Head);
+                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipBlack", EquipType.Face);
                 }
                 if (i.type == ItemID.GolfBallDyedBlue) {
-                    player.head = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipBlue", EquipType.Head);
+                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipBlue", EquipType.Face);
                 }
                 if (i.type == ItemID.GolfBallDyedBrown) {
-                    player.head = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipBrown", EquipType.Head);
+                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipBrown", EquipType.Face);
                 }
                 if (i.type == ItemID.GolfBallDyedCyan) {
-                    player.head = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipCyan", EquipType.Head);
+                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipCyan", EquipType.Face);
                 }
                 if (i.type == ItemID.GolfBallDyedGreen) {
-                    player.head = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipGreen", EquipType.Head);
+                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipGreen", EquipType.Face);
                 }
                 if (i.type == ItemID.GolfBallDyedLimeGreen) {
-                    player.head = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipLime", EquipType.Head);
+                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipLime", EquipType.Face);
                 }
                 if (i.type == ItemID.GolfBallDyedOrange) {
-                    player.head = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipOrange", EquipType.Head);
+                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipOrange", EquipType.Face);
                 }
                 if (i.type == ItemID.GolfBallDyedPink) {
-                    player.head = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipPink", EquipType.Head);
+                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipPink", EquipType.Face);
                 }
                 if (i.type == ItemID.GolfBallDyedPurple) {
-                    player.head = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipPurple", EquipType.Head);
+                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipPurple", EquipType.Face);
                 }
                 if (i.type == ItemID.GolfBallDyedRed) {
-                    player.head = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipRed", EquipType.Head);
+                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipRed", EquipType.Face);
                 }
                 if (i.type == ItemID.GolfBallDyedSkyBlue) {
-                    player.head = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipSkyBlue", EquipType.Head);
+                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipSkyBlue", EquipType.Face);
                 }
                 if (i.type == ItemID.GolfBallDyedTeal) {
-                    player.head = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipTeal", EquipType.Head);
+                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipTeal", EquipType.Face);
                 }
                 if (i.type == ItemID.GolfBallDyedViolet) {
-                    player.head = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipViolet", EquipType.Head);
+                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipViolet", EquipType.Face);
                 }
                 if (i.type == ItemID.GolfBallDyedYellow) {
-                    player.head = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipYellow", EquipType.Head);
+                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipYellow", EquipType.Face);
+                }
+                #endregion
+
+                #region //Expert
+                if (i.type == ItemID.RoyalGel) {
+                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipRoyal", EquipType.Face);
+                }
+                if (i.type == ItemID.BrainOfConfusion) {
+                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipBrain", EquipType.Face);
+                }
+                if (i.type == ItemID.VolatileGelatin) {
+                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipVolatile", EquipType.Face);
+                }
+                if (i.type == ItemID.SporeSac) {
+                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipSac", EquipType.Face);
+                }
+                if (i.type == ItemID.ShinyStone) {
+                    player.neck = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipShiny", EquipType.Neck);
+                }
+                if (i.type == ItemID.EmpressFlightBooster) {
+                    player.neck = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipSoar", EquipType.Neck);
+                }
+                if (i.type == ItemID.GravityGlobe) {
+                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipGravity", EquipType.Face);
                 }
                 #endregion
             }
