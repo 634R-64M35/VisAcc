@@ -7,6 +7,7 @@ namespace VisAcc {
     public class VisAccGlobalItem : GlobalItem {
         public override bool InstancePerEntity => true;
         public override void UpdateAccessory(Item item, Player player, bool hideVisual) {
+            VisAccPlayer modPlayer = Main.LocalPlayer.GetModPlayer<VisAccPlayer>();
             foreach (Item i in player.armor) {
                 #region //Movement
                 if (i.type == ItemID.Aglet) {
@@ -223,6 +224,12 @@ namespace VisAcc {
                 }
                 if (i.type == ItemID.TackleBox) {
                     player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipTackle", EquipType.Waist);
+                }
+                if (i.type == ItemID.HighTestFishingLine) {
+                    modPlayer.highTest = true;
+                }
+                if (i.type == ItemID.LavaFishingHook) {
+                    modPlayer.lavaProof = true;
                 }
                 #endregion
 
