@@ -201,7 +201,7 @@ namespace VisAcc {
                     player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipVitamins", EquipType.Waist);
                 }
                 if (i.type == ItemID.HerculesBeetle) {
-                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipBeetle", EquipType.Waist);
+                    player.neck = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipBeetle", EquipType.Neck);
                 }
                 if (i.type == ItemID.NecromanticScroll) {
                     player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipScroll", EquipType.Waist);

@@ -76,7 +76,7 @@ namespace VisAcc {
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/TrifoldMap", EquipType.Waist, name: "EquipMap");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/WarriorEmblem", EquipType.Neck, name: "EquipWarrior");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/Vitamins", EquipType.Waist, name: "EquipVitamins");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/HerculesBeetle", EquipType.Waist, name: "EquipBeetle");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/HerculesBeetle", EquipType.Neck, name: "EquipBeetle");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/NecromanticScroll", EquipType.Waist, name: "EquipScroll");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/PapyrusScarab", EquipType.Waist, name: "EquipScarab");
                 //Construction
