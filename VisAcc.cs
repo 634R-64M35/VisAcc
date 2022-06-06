@@ -1,5 +1,7 @@
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
+using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -11,6 +13,8 @@ namespace VisAcc {
         public static int month;
         public override void Load() {
             if (Main.netMode != NetmodeID.Server) {
+                Ref<Effect> dyeRef = new Ref<Effect>(ModContent.Request<Effect>("VisAcc/Effects/ArmorPolishShader").Value);
+                GameShaders.Armor.BindShader(ItemID.ArmorPolish, new ArmorShaderData(dyeRef, "ArmorPolishShader")).UseColor(.65f, .65f, .65f);
                 //Movement
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/Aglet", EquipType.Shoes, name: "EquipAglet");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/AnkletOfTheWind", EquipType.Shoes, name : "EquipAnklet");
@@ -46,7 +50,8 @@ namespace VisAcc {
                 //Combat
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/AdhesiveBandage", EquipType.Face, name: "EquipAdhBandage");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/AnkhCharm", EquipType.Waist, name: "EquipAnkh");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/ArmorBracing", EquipType.Shield, name: "EquipBracing");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/ArmorBracingChest", EquipType.Neck, name: "EquipBracingChest");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/ArmorBracingPads", EquipType.HandsOn, name: "EquipBracingPads");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/AvengerEmblem", EquipType.Neck, name: "EquipAvenger");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/Bezoar", EquipType.HandsOn, name: "EquipBezoar");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/MoonCharm", EquipType.Neck, name: "EquipMoonCharm");

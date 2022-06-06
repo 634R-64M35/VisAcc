@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 using VisAcc.Items;
@@ -112,8 +113,10 @@ namespace VisAcc {
                 if (i.type == ItemID.AnkhCharm) {
                     player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipAnkh", EquipType.Waist);
                 }
-                if (i.type == ItemID.ArmorBracing) {
-                    player.shield = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipBracing", EquipType.Shield);
+                if (i.type == ItemID.ArmorBracing)
+                {
+                    player.neck = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipBracingChest", EquipType.Neck);
+                    player.handon = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipBracingPads", EquipType.HandsOn);
                 }
                 if (i.type == ItemID.AvengerEmblem) {
                     player.neck = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipAvenger", EquipType.Neck);
@@ -228,8 +231,15 @@ namespace VisAcc {
                 if (i.type == ItemID.HighTestFishingLine) {
                     modPlayer.highTest = true;
                 }
+                if (i.type == ItemID.AnglerTackleBag) {
+                    modPlayer.highTest = true;
+                }
                 if (i.type == ItemID.LavaFishingHook) {
                     modPlayer.lavaProof = true;
+                }
+                if (i.type == ItemID.LavaproofTackleBag) {
+                    modPlayer.lavaProof = true;
+                    modPlayer.highTest = true;
                 }
                 #endregion
 

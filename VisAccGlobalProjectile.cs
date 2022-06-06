@@ -8,8 +8,7 @@ using VisAcc.Items;
 
 namespace VisAcc {
     public class VisAccGlobalProjectile : GlobalProjectile {
-        public override void OnSpawn(Projectile projectile, IEntitySource source)
-        {
+        public override void OnSpawn(Projectile projectile, IEntitySource source) {
             VisAccPlayer modPlayer = Main.LocalPlayer.GetModPlayer<VisAccPlayer>();
             if (modPlayer.lavaProof &&
                 (projectile.type == ProjectileID.BobberBloody
