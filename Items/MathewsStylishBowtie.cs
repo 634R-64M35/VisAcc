@@ -11,6 +11,7 @@ namespace VisAcc.Items {
             DisplayName.SetDefault("Mathew's Stylish Bowtie");
             Tooltip.SetDefault("Dev Item");
         }
+
         public override void ModifyTooltips(List<TooltipLine> tooltips) {
             foreach (TooltipLine tooltipLine in tooltips)
                 if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
