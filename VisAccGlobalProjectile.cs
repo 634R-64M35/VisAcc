@@ -4,13 +4,11 @@ using System;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameContent;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace VisAcc {
 	public class VisAccGlobalProjectile : GlobalProjectile {
-		public override bool InstancePerEntity
-			=> true;
+		public override bool InstancePerEntity => true;
 
 		public static readonly Color[] PossibleLineColors = new Color[] {
 			new Color(255, 215, 0), // A gold color

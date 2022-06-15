@@ -16,10 +16,7 @@ float4 uLegacyArmorSourceRect;
 float2 uLegacyArmorSheetSize;
 float2 uTargetPosition;
 
-
-float4 ArmorPolishShader(float4 sampleColor : COLOR0, float2 coords : TEXCOORD0) : COLOR0
-{
-
+float4 ArmorPolishShader(float4 sampleColor : COLOR0, float2 coords : TEXCOORD0) : COLOR0 {
 	float4 colour = tex2D(uImage0, coords);
 	float frameY = (coords.y * uImageSize0.y - uSourceRect.y) / uSourceRect.w;
 
@@ -34,11 +31,8 @@ float4 ArmorPolishShader(float4 sampleColor : COLOR0, float2 coords : TEXCOORD0)
 	return colour * sampleColor;
 }
 
-
-technique Technique1
-{
-	pass ArmorPolishShaderPass
-	{
+technique Technique1 {
+	pass ArmorPolishShaderPass {
 		PixelShader = compile ps_2_0 ArmorPolishShader();
 	}
 }

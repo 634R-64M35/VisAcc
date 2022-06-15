@@ -11,6 +11,7 @@ namespace VisAcc {
         public static string currentDate;
         public static int day;
         public static int month;
+
         public override void Load() {
             if (Main.netMode != NetmodeID.Server) {
                 Ref<Effect> dyeRef = new Ref<Effect>(ModContent.Request<Effect>("VisAcc/Effects/ArmorPolishShader").Value);

@@ -1,12 +1,20 @@
 using Terraria;
-using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
-using VisAcc.Items;
 
 namespace VisAcc {
     public class VisAccGlobalItem : GlobalItem {
         public override bool InstancePerEntity => true;
+
+        public override void SetStaticDefaults() {
+            Item royGel = new Item();
+            Item volGel = new Item();
+
+            royGel.SetDefaults(ItemID.RoyalGel);
+            royGel.faceSlot = 14;
+            ArmorIDs.Face.Sets.PreventHairDraw[royGel.faceSlot] = true;
+        }
+
         public override void UpdateAccessory(Item item, Player player, bool hideVisual) {
             VisAccPlayer modPlayer = Main.LocalPlayer.GetModPlayer<VisAccPlayer>();
             foreach (Item i in player.armor) {
