@@ -4,6 +4,7 @@ using Terraria;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
+using VisAcc.Items;
 
 namespace VisAcc {
 	public class VisAcc : Mod {
@@ -14,8 +15,6 @@ namespace VisAcc {
 
         public override void Load() {
             if (Main.netMode != NetmodeID.Server) {
-                Ref<Effect> dyeRef = new Ref<Effect>(ModContent.Request<Effect>("VisAcc/Effects/ArmorPolishShader").Value);
-                GameShaders.Armor.BindShader(ItemID.ArmorPolish, new ArmorShaderData(dyeRef, "ArmorPolishShader")).UseColor(.65f, .65f, .65f);
                 //Movement
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/Aglet", EquipType.Shoes, name: "EquipAglet");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/AnkletOfTheWind", EquipType.Shoes, name : "EquipAnklet");

@@ -23,8 +23,7 @@ namespace VisAcc {
 			modPlayer.highTest = false;
 		}
 
-		public override bool PreDraw(Projectile projectile, ref Color drawColor)
-		{
+		public override bool PreDraw(Projectile projectile, ref Color drawColor) {
 			VisAccPlayer modPlayer = Main.LocalPlayer.GetModPlayer<VisAccPlayer>();
 			if (modPlayer.lavaProof && projectile.bobber) {
 				Main.instance.LoadProjectile(projectile.type);
@@ -39,11 +38,9 @@ namespace VisAcc {
 
 		public override bool PreDrawExtras(Projectile projectile) {
 			VisAccPlayer modPlayer = Main.LocalPlayer.GetModPlayer<VisAccPlayer>();
-			if (modPlayer.highTest == true)
-			{
+			if (modPlayer.highTest == true) {
 				const int XPositionAdditive = 45;
 				const float YPositionAdditive = 35f;
-
 
 				Player player = Main.player[projectile.owner];
 

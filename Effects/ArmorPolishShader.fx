@@ -16,23 +16,19 @@ float4 uLegacyArmorSourceRect;
 float2 uLegacyArmorSheetSize;
 float2 uTargetPosition;
 
-float4 ArmorPolishShader(float4 sampleColor : COLOR0, float2 coords : TEXCOORD0) : COLOR0 {
+float4 ArmorPolishShaderEffect(float4 sampleColor : COLOR0, float2 coords : TEXCOORD0) : COLOR0 {
 	float4 colour = tex2D(uImage0, coords);
 	float frameY = (coords.y * uImageSize0.y - uSourceRect.y) / uSourceRect.w;
+	float vwave = frac(frameY + 1 + (uTime * .75));
+	float luminosity = (colour.r + colour.g + colour.b) / 1;
+	float uh = 0.25f * sin(uTime * 1.5f) + 1.1f;
 
-	float wave = 1 - frac((sin(coords.x) + 1) + uTime);
-	float vwave = 1 - frac((frameY + uTime));
-
-	float2 pixelSize = 1 / uImageSize0;
-
-	float luminosity = (colour.r + colour.g + colour.b) / 2.3f;
-
-	colour.rgb *= wave * luminosity;
+	colour.rgb *= luminosity * uh;
 	return colour * sampleColor;
 }
 
 technique Technique1 {
 	pass ArmorPolishShaderPass {
-		PixelShader = compile ps_2_0 ArmorPolishShader();
+		PixelShader = compile ps_2_0 ArmorPolishShaderEffect();
 	}
 }

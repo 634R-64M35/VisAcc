@@ -1,10 +1,14 @@
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
+using VisAcc.Items;
 
 namespace VisAcc {
     public class VisAccGlobalItem : GlobalItem {
         public override bool InstancePerEntity => true;
+        public static int shaderID = GameShaders.Armor.GetShaderIdFromItemId(ModContent.ItemType<ArmorPolishDye>());
 
         public override void SetStaticDefaults() {
             Item royGel = new Item();
@@ -121,10 +125,12 @@ namespace VisAcc {
                 if (i.type == ItemID.AnkhCharm) {
                     player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipAnkh", EquipType.Waist);
                 }
-                if (i.type == ItemID.ArmorBracing)
-                {
+                if (i.type == ItemID.ArmorBracing) {
                     player.neck = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipBracingChest", EquipType.Neck);
                     player.handon = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipBracingPads", EquipType.HandsOn);
+                }
+                if (i.type == ItemID.ArmorPolish) {
+                    modPlayer.armorPolish = true;
                 }
                 if (i.type == ItemID.AvengerEmblem) {
                     player.neck = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipAvenger", EquipType.Neck);
