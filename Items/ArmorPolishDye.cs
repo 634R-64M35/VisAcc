@@ -16,11 +16,11 @@ namespace VisAcc.Items {
         }
 
         public override void SetDefaults() {
-            int  dye = Item.dye;
+            int dye = Item.dye;
             Item.CloneDefaults(ItemID.GelDye);
             Item.width = 22;
             Item.height = 26;
-            Item.value = Item.sellPrice(0, 3, 0, 0);
+            Item.value = Item.sellPrice(0, 0, 0, 0);
             Item.dye = dye;
         }
     }

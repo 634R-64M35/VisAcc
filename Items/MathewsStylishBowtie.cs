@@ -9,7 +9,7 @@ namespace VisAcc.Items {
     public class MathewsStylishBowtie : ModItem {
         public override void SetStaticDefaults() {
             DisplayName.SetDefault("Mathew's Stylish Bowtie");
-            Tooltip.SetDefault("Dev Item");
+            Tooltip.SetDefault("Great for impersonating idiots!\nDev Item");
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips) {

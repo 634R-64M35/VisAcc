@@ -1,4 +1,3 @@
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
@@ -10,17 +9,15 @@ namespace VisAcc {
         public override bool InstancePerEntity => true;
         public static int shaderID = GameShaders.Armor.GetShaderIdFromItemId(ModContent.ItemType<ArmorPolishDye>());
 
-        public override void SetStaticDefaults() {
-            Item royGel = new Item();
-            Item volGel = new Item();
-
-            royGel.SetDefaults(ItemID.RoyalGel);
-            royGel.faceSlot = 14;
-            ArmorIDs.Face.Sets.PreventHairDraw[royGel.faceSlot] = true;
-        }
-
         public override void UpdateAccessory(Item item, Player player, bool hideVisual) {
             VisAccPlayer modPlayer = Main.LocalPlayer.GetModPlayer<VisAccPlayer>();
+            
+            modPlayer.royGel = false; //deleting this bool makes the head disappear so that's cool, if any other idiot (me) needs it later, look here
+            modPlayer.brain = false;
+            modPlayer.volGel = false;
+            modPlayer.spore = false;
+            modPlayer.gGlobe = false;
+
             foreach (Item i in player.armor) {
                 #region //Movement
                 if (i.type == ItemID.Aglet) {
@@ -340,15 +337,19 @@ namespace VisAcc {
 
                 #region //Expert
                 if (i.type == ItemID.RoyalGel) {
+                    modPlayer.royGel = true;
                     player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipRoyal", EquipType.Face);
                 }
                 if (i.type == ItemID.BrainOfConfusion) {
+                    modPlayer.brain = true;
                     player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipBrain", EquipType.Face);
                 }
                 if (i.type == ItemID.VolatileGelatin) {
+                    modPlayer.volGel = true;
                     player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipVolatile", EquipType.Face);
                 }
                 if (i.type == ItemID.SporeSac) {
+                    modPlayer.spore = true;
                     player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipSac", EquipType.Face);
                 }
                 if (i.type == ItemID.ShinyStone) {
@@ -358,6 +359,7 @@ namespace VisAcc {
                     player.neck = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipSoar", EquipType.Neck);
                 }
                 if (i.type == ItemID.GravityGlobe) {
+                    modPlayer.gGlobe = true;
                     player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipGravity", EquipType.Face);
                 }
                 #endregion

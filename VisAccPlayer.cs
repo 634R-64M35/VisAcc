@@ -10,6 +10,11 @@ namespace VisAcc {
 		public bool highTest;
 		public bool lavaProof;
 		public bool armorPolish;
+		public bool royGel;
+		public bool brain;
+		public bool volGel;
+		public bool spore;
+		public bool gGlobe;
 
 		public override IEnumerable<Item> AddStartingItems(bool mediumCoreDeath) {
 			return Player.name != "Mathew" ?
@@ -28,18 +33,55 @@ namespace VisAcc {
 		}
 
         public override void ModifyDrawInfo(ref PlayerDrawSet drawInfo) {
-			if (armorPolish == true) {
+			if (armorPolish) {
 				Player.cHead = VisAccGlobalItem.shaderID;
 				Player.cBody = VisAccGlobalItem.shaderID;
 				Player.cLegs = VisAccGlobalItem.shaderID;
 			}
+			if (royGel || volGel) {
+				drawInfo.drawPlayer.head = 0;
+				drawInfo.fullHair = false;
+				drawInfo.hatHair = false;
+				drawInfo.hideHair = true;
+			}
+			if (brain || gGlobe) {
+				drawInfo.colorHair = Microsoft.Xna.Framework.Color.Transparent;
+				drawInfo.fullHair = false;
+				drawInfo.hatHair = false;
+				drawInfo.hideHair = true;
+			}
+			if (spore) {
+				drawInfo.drawPlayer.head = 0;
+				drawInfo.fullHair = false;
+				drawInfo.hatHair = true;
+				drawInfo.hideHair = true;
+			}
 			armorPolish = false;
 		}
+
+        public override void HideDrawLayers(PlayerDrawSet drawInfo) {
+			if (royGel || volGel) {
+				PlayerDrawLayers.HairBack.Hide();
+				PlayerDrawLayers.Head.Hide();
+			}
+			if (brain || gGlobe) {
+				PlayerDrawLayers.HairBack.Hide();
+			}
+			if (spore) {
+				PlayerDrawLayers.HairBack.Hide();
+			}
+		}
+
 
         public override void Initialize() {
 			highTest = false;
 			lavaProof = false;
 			armorPolish = false;
+			royGel = false;
+			brain = false;
+			volGel = false;
+			spore = false;
+			gGlobe = false;
 		}
 	}
 }

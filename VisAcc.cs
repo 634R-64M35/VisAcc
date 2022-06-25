@@ -1,10 +1,7 @@
-using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
-using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
-using VisAcc.Items;
 
 namespace VisAcc {
 	public class VisAcc : Mod {
@@ -94,7 +91,6 @@ namespace VisAcc {
                 //Miscellaneous
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/ClothierVoodooDoll", EquipType.Waist, name: "EquipClothier");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/CoinRing", EquipType.HandsOn, name: "EquipCoin");
-                //EquipLoader.AddEquipTexture(this, "VisAcc/Textures/DiscountCard", EquipType.Waist, name: "EquipCard");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/GoldRing", EquipType.HandsOn, name: "EquipGold");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/GreedyRing", EquipType.HandsOn, name: "EquipGreedy");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/GregBook", EquipType.Waist, name: "EquipCordage");
@@ -120,7 +116,8 @@ namespace VisAcc {
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/RoyalGel", EquipType.Face, name: "EquipRoyal");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/BrainOfConfusion", EquipType.Face, name: "EquipBrain");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/VolatileGelatin", EquipType.Face, name: "EquipVolatile");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/SporeSac", EquipType.Face, name: "EquipSac");
+                //EquipLoader.AddEquipTexture(this, "VisAcc/Textures/SporeSac", EquipType.Face, name: "EquipSac");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/SporeSacAlt", EquipType.Face, name: "EquipSac");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/ShinyStone", EquipType.Neck, name: "EquipShiny");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/SoaringInsignia", EquipType.Neck, name: "EquipSoar");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/GravityGlobe", EquipType.Face, name: "EquipGravity");
