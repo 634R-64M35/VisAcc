@@ -63,12 +63,13 @@ namespace VisAcc {
 			if (royGel || volGel) {
 				PlayerDrawLayers.HairBack.Hide();
 				PlayerDrawLayers.Head.Hide();
-			}
-			if (brain || gGlobe) {
+			} else if (brain || gGlobe) {
 				PlayerDrawLayers.HairBack.Hide();
-			}
-			if (spore) {
+			} else if (spore) {
 				PlayerDrawLayers.HairBack.Hide();
+			} else {
+				PlayerDrawLayers.HairBack.Load();
+				PlayerDrawLayers.Head.Load();
 			}
 		}
 

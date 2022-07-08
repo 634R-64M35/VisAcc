@@ -230,6 +230,9 @@ namespace VisAcc {
                 if (i.type == ItemID.PortableCementMixer) {
                     player.back = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipCement", EquipType.Back);
                 }
+                if (i.type == ItemID.AncientChisel) {
+                    player.shield = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipChisel", EquipType.Shield);
+                }
                 #endregion
 
                 #region //Fishing

@@ -83,6 +83,7 @@ namespace VisAcc {
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/PapyrusScarab", EquipType.Waist, name: "EquipScarab");
                 //Construction
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/PortableCementMixer", EquipType.Back, name: "EquipCement");
+                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/AncientChisel", EquipType.Shield, name: "EquipChisel");
                 //Fishing
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/AnglerEarring", EquipType.Face, name: "EquipEarring");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/TackleBox", EquipType.Waist, name: "EquipTackle");
