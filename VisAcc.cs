@@ -1,11 +1,13 @@
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System;
 using Terraria;
+using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace VisAcc {
-	public class VisAcc : Mod {
-        public static VisAcc instance;
+    public class VisAcc : Mod {
         public static string currentDate;
         public static int day;
         public static int month;
@@ -122,6 +124,9 @@ namespace VisAcc {
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/ShinyStone", EquipType.Neck, name: "EquipShiny");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/SoaringInsignia", EquipType.Neck, name: "EquipSoar");
                 EquipLoader.AddEquipTexture(this, "VisAcc/Textures/GravityGlobe", EquipType.Face, name: "EquipGravity");
+
+                // Make Armor Polish act like a dye to allow the player to polish their armor
+                GameShaders.Armor.BindShader(ItemID.ArmorPolish, new ArmorShaderData(new Ref<Effect>(Assets.Request<Effect>("Effects/ArmorPolishShader", AssetRequestMode.ImmediateLoad).Value), "ArmorPolishShaderPass")).UseColor(0.65f, 0.65f, 0.65f);
             }
 
             DateTime dateTime = DateTime.Now;
@@ -130,8 +135,40 @@ namespace VisAcc {
             month = dateTime.Month;
         }
 
-        public override void Unload() {
-            instance = null;
+        public override void PostSetupContent() {
+            // Set ArmorIDs sets for the added equips
+            if (!Main.dedServ) {
+                ArmorIDs.Back.Sets.DrawInBackpackLayer[EquipLoader.GetEquipSlot(this, "EquipRecon", EquipType.Back)] = true;
+                ArmorIDs.Back.Sets.DrawInBackpackLayer[EquipLoader.GetEquipSlot(this, "EquipRifle", EquipType.Back)] = true;
+                ArmorIDs.Back.Sets.DrawInBackpackLayer[EquipLoader.GetEquipSlot(this, "EquipSniper", EquipType.Back)] = true;
+                ArmorIDs.Back.Sets.DrawInBackpackLayer[EquipLoader.GetEquipSlot(this, "EquipCement", EquipType.Back)] = true;
+
+                ArmorIDs.Face.Sets.DrawInFaceHeadLayer[EquipLoader.GetEquipSlot(this, "EquipGolem", EquipType.Face)] = true;
+                ArmorIDs.Face.Sets.DrawInFaceHeadLayer[EquipLoader.GetEquipSlot(this, "EquipMegaphone", EquipType.Face)] = true;
+                ArmorIDs.Face.Sets.DrawInFaceHeadLayer[EquipLoader.GetEquipSlot(this, "EquipThing", EquipType.Face)] = true;
+
+                ArmorIDs.Face.Sets.DrawInFaceFlowerLayer[EquipLoader.GetEquipSlot(this, "EquipWhite", EquipType.Face)] = true;
+                ArmorIDs.Face.Sets.DrawInFaceFlowerLayer[EquipLoader.GetEquipSlot(this, "EquipBlack", EquipType.Face)] = true;
+                ArmorIDs.Face.Sets.DrawInFaceFlowerLayer[EquipLoader.GetEquipSlot(this, "EquipBlue", EquipType.Face)] = true;
+                ArmorIDs.Face.Sets.DrawInFaceFlowerLayer[EquipLoader.GetEquipSlot(this, "EquipBrown", EquipType.Face)] = true;
+                ArmorIDs.Face.Sets.DrawInFaceFlowerLayer[EquipLoader.GetEquipSlot(this, "EquipCyan", EquipType.Face)] = true;
+                ArmorIDs.Face.Sets.DrawInFaceFlowerLayer[EquipLoader.GetEquipSlot(this, "EquipGreen", EquipType.Face)] = true;
+                ArmorIDs.Face.Sets.DrawInFaceFlowerLayer[EquipLoader.GetEquipSlot(this, "EquipLime", EquipType.Face)] = true;
+                ArmorIDs.Face.Sets.DrawInFaceFlowerLayer[EquipLoader.GetEquipSlot(this, "EquipOrange", EquipType.Face)] = true;
+                ArmorIDs.Face.Sets.DrawInFaceFlowerLayer[EquipLoader.GetEquipSlot(this, "EquipPink", EquipType.Face)] = true;
+                ArmorIDs.Face.Sets.DrawInFaceFlowerLayer[EquipLoader.GetEquipSlot(this, "EquipPurple", EquipType.Face)] = true;
+                ArmorIDs.Face.Sets.DrawInFaceFlowerLayer[EquipLoader.GetEquipSlot(this, "EquipRed", EquipType.Face)] = true;
+                ArmorIDs.Face.Sets.DrawInFaceFlowerLayer[EquipLoader.GetEquipSlot(this, "EquipSkyBlue", EquipType.Face)] = true;
+                ArmorIDs.Face.Sets.DrawInFaceFlowerLayer[EquipLoader.GetEquipSlot(this, "EquipTeal", EquipType.Face)] = true;
+                ArmorIDs.Face.Sets.DrawInFaceFlowerLayer[EquipLoader.GetEquipSlot(this, "EquipViolet", EquipType.Face)] = true;
+                ArmorIDs.Face.Sets.DrawInFaceFlowerLayer[EquipLoader.GetEquipSlot(this, "EquipYellow", EquipType.Face)] = true;
+
+                ArmorIDs.Face.Sets.DrawInFaceHeadLayer[EquipLoader.GetEquipSlot(this, "EquipRoyal", EquipType.Face)] = true;
+                ArmorIDs.Face.Sets.DrawInFaceHeadLayer[EquipLoader.GetEquipSlot(this, "EquipVolatile", EquipType.Face)] = true;
+                ArmorIDs.Face.Sets.PreventHairDraw[EquipLoader.GetEquipSlot(this, "EquipBrain", EquipType.Face)] = true;
+                ArmorIDs.Face.Sets.PreventHairDraw[EquipLoader.GetEquipSlot(this, "EquipGravity", EquipType.Face)] = true;
+                ArmorIDs.Face.Sets.DrawInFaceFlowerLayer[EquipLoader.GetEquipSlot(this, "EquipSac", EquipType.Face)] = true;
+            }
         }
     }
 }
