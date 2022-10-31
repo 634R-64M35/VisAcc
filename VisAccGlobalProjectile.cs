@@ -8,7 +8,6 @@ using Terraria.ModLoader;
 
 namespace VisAcc {
 	public class VisAccGlobalProjectile : GlobalProjectile {
-		public override bool InstancePerEntity => true;
 
 		public override void OnSpawn(Projectile projectile, IEntitySource source) {
 			VisAccPlayer modPlayer = Main.LocalPlayer.GetModPlayer<VisAccPlayer>();

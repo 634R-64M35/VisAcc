@@ -1,371 +1,470 @@
 using Terraria;
-using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
-using VisAcc.Items;
 
 namespace VisAcc {
     public class VisAccGlobalItem : GlobalItem {
-        public override bool InstancePerEntity => true;
-        public static int shaderID = GameShaders.Armor.GetShaderIdFromItemId(ModContent.ItemType<ArmorPolishDye>());
+        public override void SetDefaults(Item item)  {
+            // By setting the item's [x]slot fields, the equips are automatically added to the player and follow normal equip logic.
+            switch (item.type) {
+                #region Movement
+
+                case ItemID.Aglet:
+                    item.shoeSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipAglet", EquipType.Shoes);
+                    break;
+
+                case ItemID.AnkletoftheWind:
+                    item.shoeSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipAnklet", EquipType.Shoes);
+                    break;
+
+                case ItemID.LavaCharm:
+                    item.shieldSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipLavaCharm", EquipType.Shield);
+                    break;
+
+                case ItemID.LuckyHorseshoe:
+                    item.shoeSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipLuckyHonse", EquipType.Shoes);
+                    break;
+
+                case ItemID.MoltenCharm:
+                    item.shieldSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipMoltCharm", EquipType.Shield);
+                    break;
+
+                case ItemID.NeptunesShell:
+                    item.shieldSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipNepShell", EquipType.Shield);
+                    break;
+
+                case ItemID.ObsidianHorseshoe:
+                    item.shoeSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipObsHonse", EquipType.Shoes);
+                    break;
+
+                #endregion Movement
+
+                #region Informational
+
+                case ItemID.DepthMeter:
+                    item.waistSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipDepth", EquipType.Waist);
+                    break;
+
+                case ItemID.Compass:
+                    item.waistSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipCompass", EquipType.Waist);
+                    break;
+
+                case ItemID.Radar:
+                    item.faceSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipRadar", EquipType.Face);
+                    break;
+
+                case ItemID.LifeformAnalyzer:
+                    item.backSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipLifeAnalyzer", EquipType.Back);
+                    break;
+
+                case ItemID.TallyCounter:
+                    item.waistSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipTally", EquipType.Waist);
+                    break;
+
+                case ItemID.MetalDetector:
+                    item.waistSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipMetal", EquipType.Waist);
+                    break;
+
+                case ItemID.Stopwatch:
+                    item.waistSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipStopwatch", EquipType.Waist);
+                    break;
+
+                case ItemID.DPSMeter:
+                    item.frontSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipDPS", EquipType.Front);
+                    break;
+
+                case ItemID.FishermansGuide:
+                    item.waistSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipFishGuide", EquipType.Waist);
+                    break;
+
+                case ItemID.WeatherRadio:
+                    item.beardSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipRadio", EquipType.Beard);
+                    break;
+
+                case ItemID.Sextant:
+                    item.shieldSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipSextant", EquipType.Shield);
+                    break;
+
+                case ItemID.GPS:
+                    item.faceSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipGPS", EquipType.Face);
+                    break;
+
+                case ItemID.REK:
+                    item.faceSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipREK", EquipType.Face);
+                    break;
+
+                case ItemID.GoblinTech:
+                    item.frontSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipGoblin", EquipType.Front);
+                    break;
+
+                case ItemID.FishFinder:
+                    item.faceSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipFishFinder", EquipType.Face);
+                    break;
+
+                case ItemID.PDA:
+                    item.waistSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipPDA", EquipType.Waist);
+                    break;
+
+                case ItemID.MechanicalLens:
+                    item.faceSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipLens", EquipType.Face);
+                    break;
+
+                case ItemID.LaserRuler:
+                    item.waistSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipMechRuler", EquipType.Waist);
+                    break;
+
+                #endregion Informational
+
+                #region Health and Mana
+
+                case ItemID.CelestialMagnet:
+                    item.waistSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipCelMagnet", EquipType.Waist);
+                    break;
+
+                case ItemID.CelestialEmblem:
+                    item.waistSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipCelEmblem", EquipType.Waist);
+                    break;
+
+                case ItemID.MagnetFlower:
+                    item.waistSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipMagnetFlower", EquipType.Waist);
+                    break;
+
+                case ItemID.PhilosophersStone:
+                    item.neckSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipPhilStone", EquipType.Neck);
+                    break;
+
+                #endregion Health and Mana
+
+                #region Combat
+
+                case ItemID.AdhesiveBandage:
+                    item.faceSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipAdhBandage", EquipType.Face);
+                    break;
+
+                case ItemID.AnkhCharm:
+                    item.waistSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipAnkh", EquipType.Waist);
+                    break;
+
+                case ItemID.ArmorBracing:
+                    item.neckSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipBracingChest", EquipType.Neck);
+                    item.handOnSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipBracingPads", EquipType.HandsOn);
+                    break;
+
+                case ItemID.AvengerEmblem:
+                    item.neckSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipAvenger", EquipType.Neck);
+                    break;
+
+                case ItemID.Bezoar:
+                    item.handOnSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipBezoar", EquipType.HandsOn);
+                    break;
+
+                case ItemID.MoonCharm:
+                    item.neckSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipMoonCharm", EquipType.Neck);
+                    break;
+
+                case ItemID.MoonShell:
+                    item.neckSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipMoonShell", EquipType.Neck);
+                    break;
+
+                case ItemID.CelestialStone:
+                    item.neckSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipCelStone", EquipType.Neck);
+                    break;
+
+                case ItemID.CelestialShell:
+                    item.neckSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipCelShell", EquipType.Neck);
+                    break;
+
+                case ItemID.CountercurseMantra:
+                    item.shieldSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipMantra", EquipType.Shield);
+                    break;
+
+                case ItemID.DestroyerEmblem:
+                    item.neckSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipDestroy", EquipType.Neck);
+                    break;
+
+                case ItemID.EyeoftheGolem:
+                    item.faceSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipGolem", EquipType.Face);
+                    break;
+
+                case ItemID.FastClock:
+                    item.waistSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipFastClock", EquipType.Waist);
+                    break;
+
+                case ItemID.FleshKnuckles:
+                    item.handOnSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipFleshOn", EquipType.HandsOn);
+                    item.handOffSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipFleshOff", EquipType.HandsOff);
+                    break;
+
+                case ItemID.HoneyComb:
+                    item.neckSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipComb", EquipType.Neck);
+                    break;
+
+                case ItemID.MagmaStone:
+                    item.neckSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipMagmaStone", EquipType.Neck);
+                    break;
+
+                case ItemID.MedicatedBandage:
+                    item.faceSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipMedBandage", EquipType.Face);
+                    break;
+
+                case ItemID.Megaphone:
+                    item.faceSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipMegaphone", EquipType.Face);
+                    break;
+
+                case ItemID.Nazar:
+                    item.neckSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipNazar", EquipType.Neck);
+                    break;
+
+                case ItemID.PocketMirror:
+                    item.waistSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipMirror", EquipType.Waist);
+                    break;
+
+                case ItemID.PutridScent:
+                    item.waistSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipScent", EquipType.Waist);
+                    break;
+
+                case ItemID.RangerEmblem:
+                    item.neckSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipRanger", EquipType.Neck);
+                    break;
+
+                case ItemID.ReconScope:
+                    item.backSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipRecon", EquipType.Back);
+                    break;
+
+                case ItemID.RifleScope:
+                    item.backSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipRifle", EquipType.Back);
+                    break;
+
+                case ItemID.SniperScope:
+                    item.backSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipSniper", EquipType.Back);
+                    break;
+
+                case ItemID.SorcererEmblem:
+                    item.neckSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipSorcerer", EquipType.Neck);
+                    break;
+
+                case ItemID.SummonerEmblem:
+                    item.neckSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipSummoner", EquipType.Neck);
+                    break;
+
+                case ItemID.ThePlan:
+                    item.waistSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipPlan", EquipType.Waist);
+                    break;
+
+                case ItemID.TrifoldMap:
+                    item.waistSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipMap", EquipType.Waist);
+                    break;
+
+                case ItemID.WarriorEmblem:
+                    item.neckSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipWarrior", EquipType.Neck);
+                    break;
+
+                case ItemID.Vitamins:
+                    item.waistSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipVitamins", EquipType.Waist);
+                    break;
+
+                case ItemID.HerculesBeetle:
+                    item.neckSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipBeetle", EquipType.Neck);
+                    break;
+
+                case ItemID.NecromanticScroll:
+                    item.waistSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipScroll", EquipType.Waist);
+                    break;
+
+                case ItemID.PapyrusScarab:
+                    item.waistSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipScarab", EquipType.Waist);
+                    break;
+
+                #endregion Combat
+
+                #region Construction
+
+                case ItemID.PortableCementMixer:
+                    item.backSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipCement", EquipType.Back);
+                    break;
+
+                case ItemID.AncientChisel:
+                    item.shieldSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipChisel", EquipType.Shield);
+                    break;
+
+                #endregion Construction
+
+                #region Fishing
+
+                case ItemID.AnglerEarring:
+                    item.faceSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipEarring", EquipType.Face);
+                    break;
+
+                case ItemID.TackleBox:
+                    item.waistSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipTackle", EquipType.Waist);
+                    break;
+
+                #endregion Fishing
+
+                #region Yoyos
+
+                case ItemID.YoyoBag:
+                    item.waistSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipYoyoBag", EquipType.Waist); ;
+                    break;
+
+                #endregion Yoyos
+
+                #region Golf
+
+                case ItemID.GolfBall:
+                    item.faceSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipWhite", EquipType.Face);
+                    break;
+
+                case ItemID.GolfBallDyedBlack:
+                    item.faceSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipBlack", EquipType.Face);
+                    break;
+
+                case ItemID.GolfBallDyedBlue:
+                    item.faceSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipBlue", EquipType.Face);
+                    break;
+
+                case ItemID.GolfBallDyedBrown:
+                    item.faceSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipBrown", EquipType.Face);
+                    break;
+
+                case ItemID.GolfBallDyedCyan:
+                    item.faceSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipCyan", EquipType.Face);
+                    break;
+
+                case ItemID.GolfBallDyedGreen:
+                    item.faceSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipGreen", EquipType.Face);
+                    break;
+
+                case ItemID.GolfBallDyedLimeGreen:
+                    item.faceSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipLime", EquipType.Face);
+                    break;
+
+                case ItemID.GolfBallDyedOrange:
+                    item.faceSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipOrange", EquipType.Face);
+                    break;
+
+                case ItemID.GolfBallDyedPink:
+                    item.faceSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipPink", EquipType.Face);
+                    break;
+
+                case ItemID.GolfBallDyedPurple:
+                    item.faceSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipPurple", EquipType.Face);
+                    break;
+
+                case ItemID.GolfBallDyedRed:
+                    item.faceSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipRed", EquipType.Face);
+                    break;
+
+                case ItemID.GolfBallDyedSkyBlue:
+                    item.faceSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipSkyBlue", EquipType.Face);
+                    break;
+
+                case ItemID.GolfBallDyedTeal:
+                    item.faceSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipTeal", EquipType.Face);
+                    break;
+
+                case ItemID.GolfBallDyedViolet:
+                    item.faceSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipViolet", EquipType.Face);
+                    break;
+
+                case ItemID.GolfBallDyedYellow:
+                    item.faceSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipYellow", EquipType.Face);
+                    break;
+
+                #endregion Golf
+
+                #region Miscellaneous
+
+                case ItemID.ClothierVoodooDoll:
+                    item.waistSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipClothier", EquipType.Waist);
+                    break;
+
+                case ItemID.CoinRing:
+                    item.handOnSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipCoin", EquipType.HandsOn);
+                    break;
+
+                case ItemID.GoldRing:
+                    item.handOnSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipGold", EquipType.HandsOn);
+                    break;
+
+                case ItemID.GreedyRing:
+                    item.handOnSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipGreedy", EquipType.HandsOn);
+                    break;
+
+                case ItemID.CordageGuide:
+                    item.waistSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipCordage", EquipType.Waist);
+                    break;
+
+                case ItemID.GuideVoodooDoll:
+                    item.waistSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipGuide", EquipType.Waist);
+                    break;
+
+                case ItemID.DontStarveShaderItem:
+                    item.faceSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipThing", EquipType.Face);
+                    break;
+                /*case ItemID.DiscountCard:
+                    item.waistSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipCard", EquipType.Waist);
+                    break;
+                */
+
+                #endregion Miscellaneous
+
+                #region Expert
+
+                case ItemID.RoyalGel:
+                    item.faceSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipRoyal", EquipType.Face);
+                    break;
+
+                case ItemID.BrainOfConfusion:
+                    item.faceSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipBrain", EquipType.Face);
+                    break;
+
+                case ItemID.VolatileGelatin:
+                    item.faceSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipVolatile", EquipType.Face);
+                    break;
+
+                case ItemID.SporeSac:
+                    item.faceSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipSac", EquipType.Face);
+                    break;
+
+                case ItemID.ShinyStone:
+                    item.neckSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipShiny", EquipType.Neck);
+                    break;
+
+                case ItemID.EmpressFlightBooster:
+                    item.neckSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipSoar", EquipType.Neck);
+                    break;
+
+                case ItemID.GravityGlobe:
+                    item.faceSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipGravity", EquipType.Face);
+                    break;
+
+                    #endregion Expert
+            }
+        }
 
         public override void UpdateAccessory(Item item, Player player, bool hideVisual) {
-            VisAccPlayer modPlayer = Main.LocalPlayer.GetModPlayer<VisAccPlayer>();
-            
-            modPlayer.royGel = false; //deleting this bool makes the head disappear so that's cool, if any other idiot (me) needs it later, look here
-            modPlayer.brain = false;
-            modPlayer.volGel = false;
-            modPlayer.spore = false;
-            modPlayer.gGlobe = false;
+            if (!hideVisual)  {
+                UpdateFishingEffects(item, player);
+            }
+        }
 
-            foreach (Item i in player.armor) {
-                #region //Movement
-                if (i.type == ItemID.Aglet) {
-                    player.shoe = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipAglet", EquipType.Shoes);
-                }
-                if (i.type == ItemID.AnkletoftheWind) {
-                    player.shoe = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipAnklet", EquipType.Shoes);
-                }
-                if (i.type == ItemID.LavaCharm) {
-                    player.shield = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipLavaCharm", EquipType.Shield);
-                }
-                if (i.type == ItemID.LuckyHorseshoe) {
-                    player.shoe = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipLuckyHonse", EquipType.Shoes);
-                }
-                if (i.type == ItemID.MoltenCharm) {
-                    player.shield = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipMoltCharm", EquipType.Shield);
-                }
-                if (i.type == ItemID.NeptunesShell) {
-                    player.shield = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipNepShell", EquipType.Shield);
-                }
-                if (i.type == ItemID.ObsidianHorseshoe) {
-                    player.shoe = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipObsHonse", EquipType.Shoes);
-                }
-                #endregion
+        public override void UpdateVanity(Item item, Player player) {
+            UpdateFishingEffects(item, player);
+        }
 
-                #region //Informational
-                if (i.type == ItemID.DepthMeter) {
-                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipDepth", EquipType.Waist);
-                }
-                if (i.type == ItemID.Compass) {
-                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipCompass", EquipType.Waist);
-                }
-                if (i.type == ItemID.Radar) {
-                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipRadar", EquipType.Face);
-                }
-                if (i.type == ItemID.LifeformAnalyzer) {
-                    player.back = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipLifeAnalyzer", EquipType.Back);
-                }
-                if (i.type == ItemID.TallyCounter) {
-                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipTally", EquipType.Waist);
-                }
-                if (i.type == ItemID.MetalDetector) {
-                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipMetal", EquipType.Waist);
-                }
-                if (i.type == ItemID.Stopwatch) {
-                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipStopwatch", EquipType.Waist);
-                }
-                if (i.type == ItemID.DPSMeter) {
-                    player.front = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipDPS", EquipType.Front);
-                }
-                if (i.type == ItemID.FishermansGuide) {
-                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipFishGuide", EquipType.Waist);
-                }
-                if (i.type == ItemID.WeatherRadio) {
-                    player.beard = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipRadio", EquipType.Beard);
-                }
-                if (i.type == ItemID.Sextant) {
-                    player.shield = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipSextant", EquipType.Shield);
-                }
-                if (i.type == ItemID.GPS) {
-                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipGPS", EquipType.Face);
-                }
-                if (i.type == ItemID.REK) {
-                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipREK", EquipType.Face);
-                }
-                if (i.type == ItemID.GoblinTech) {
-                    player.front = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipGoblin", EquipType.Front);
-                }
-                if (i.type == ItemID.FishFinder) {
-                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipFishFinder", EquipType.Face);
-                }
-                if (i.type == ItemID.PDA) {
-                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipPDA", EquipType.Waist);
-                }
-                if (i.type == ItemID.MechanicalLens) {
-                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipLens", EquipType.Face);
-                }
-                if (i.type == ItemID.LaserRuler) {
-                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipMechRuler", EquipType.Waist);
-                }
-                #endregion
+        private static void UpdateFishingEffects(Item item, Player player) {
+            VisAccPlayer modPlayer = player.GetModPlayer<VisAccPlayer>();
 
-                #region //Health and Mana
-                if (i.type == ItemID.CelestialMagnet) {
-                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipCelMagnet", EquipType.Waist);
-                }
-                if (i.type == ItemID.CelestialEmblem) {
-                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipCelEmblem", EquipType.Waist);
-                }
-                if (i.type == ItemID.MagnetFlower) {
-                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipMagnetFlower", EquipType.Waist);
-                }
-                if (i.type == ItemID.PhilosophersStone) {
-                    player.neck = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipPhilStone", EquipType.Neck);
-                }
-                #endregion
-
-                #region //Combat
-                if (i.type == ItemID.AdhesiveBandage) {
-                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipAdhBandage", EquipType.Face);
-                }
-                if (i.type == ItemID.AnkhCharm) {
-                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipAnkh", EquipType.Waist);
-                }
-                if (i.type == ItemID.ArmorBracing) {
-                    player.neck = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipBracingChest", EquipType.Neck);
-                    player.handon = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipBracingPads", EquipType.HandsOn);
-                }
-                if (i.type == ItemID.ArmorPolish) {
-                    modPlayer.armorPolish = true;
-                }
-                if (i.type == ItemID.AvengerEmblem) {
-                    player.neck = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipAvenger", EquipType.Neck);
-                }
-                if (i.type == ItemID.Bezoar) {
-                    player.handon = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipBezoar", EquipType.HandsOn);
-                }
-                if (i.type == ItemID.MoonCharm) {
-                    player.neck = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipMoonCharm", EquipType.Neck);
-                }
-                if (i.type == ItemID.MoonShell) {
-                    player.neck = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipMoonShell", EquipType.Neck);
-                }
-                if (i.type == ItemID.CelestialStone) {
-                    player.neck = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipCelStone", EquipType.Neck);
-                }
-                if (i.type == ItemID.CelestialShell) {
-                    player.neck = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipCelShell", EquipType.Neck);
-                }
-                if (i.type == ItemID.CountercurseMantra) {
-                    player.shield  = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipMantra", EquipType.Shield);
-                }
-                if (i.type == ItemID.DestroyerEmblem) {
-                    player.neck = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipDestroy", EquipType.Neck);
-                }
-                if (i.type == ItemID.EyeoftheGolem) {
-                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipGolem", EquipType.Face);
-                }
-                if (i.type == ItemID.FastClock) {
-                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipFastClock", EquipType.Waist);
-                }
-                if (i.type == ItemID.FleshKnuckles) {
-                    player.handon = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipFleshOn", EquipType.HandsOn);
-                    player.handoff = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipFleshOff", EquipType.HandsOff);
-                }
-                if (i.type == ItemID.HoneyComb) {
-                    player.neck = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipComb", EquipType.Neck);
-                }
-                if (i.type == ItemID.MagmaStone)
-                {
-                    player.neck = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipMagmaStone", EquipType.Neck);
-                }
-                if (i.type == ItemID.MedicatedBandage) {
-                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipMedBandage", EquipType.Face);
-                }
-                if (i.type == ItemID.Megaphone) {
-                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipMegaphone", EquipType.Face);
-                }
-                if (i.type == ItemID.Nazar) {
-                    player.neck = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipNazar", EquipType.Neck);
-                }
-                if (i.type == ItemID.PocketMirror) {
-                    player.waist  = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipMirror", EquipType.Waist);
-                }
-                if (i.type == ItemID.PutridScent) {
-                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipScent", EquipType.Waist);
-                }
-                if (i.type == ItemID.RangerEmblem) {
-                    player.neck = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipRanger", EquipType.Neck);
-                }
-                if (i.type == ItemID.ReconScope) {
-                    player.back = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipRecon", EquipType.Back);
-                }
-                if (i.type == ItemID.RifleScope) {
-                    player.back = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipRifle", EquipType.Back);
-                }
-                if (i.type == ItemID.SniperScope) {
-                    player.back = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipSniper", EquipType.Back);
-                }
-                if (i.type == ItemID.SorcererEmblem) {
-                    player.neck = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipSorcerer", EquipType.Neck);
-                }
-                if (i.type == ItemID.SummonerEmblem) {
-                    player.neck = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipSummoner", EquipType.Neck);
-                }
-                if (i.type == ItemID.ThePlan) {
-                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipPlan", EquipType.Waist);
-                }
-                if (i.type == ItemID.TrifoldMap) {
-                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipMap", EquipType.Waist);
-                }
-                if (i.type == ItemID.WarriorEmblem) {
-                    player.neck = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipWarrior", EquipType.Neck);
-                }
-                if (i.type == ItemID.Vitamins) {
-                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipVitamins", EquipType.Waist);
-                }
-                if (i.type == ItemID.HerculesBeetle) {
-                    player.neck = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipBeetle", EquipType.Neck);
-                }
-                if (i.type == ItemID.NecromanticScroll) {
-                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipScroll", EquipType.Waist);
-                }
-                if (i.type == ItemID.PapyrusScarab) {
-                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipScarab", EquipType.Waist);
-                }
-                #endregion
-
-                #region //Construction
-                if (i.type == ItemID.PortableCementMixer) {
-                    player.back = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipCement", EquipType.Back);
-                }
-                if (i.type == ItemID.AncientChisel) {
-                    player.shield = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipChisel", EquipType.Shield);
-                }
-                #endregion
-
-                #region //Fishing
-                if (i.type == ItemID.AnglerEarring) {
-                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipEarring", EquipType.Face);
-                }
-                if (i.type == ItemID.TackleBox) {
-                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipTackle", EquipType.Waist);
-                }
-                if (i.type == ItemID.HighTestFishingLine) {
-                    modPlayer.highTest = true;
-                }
-                if (i.type == ItemID.AnglerTackleBag) {
-                    modPlayer.highTest = true;
-                }
-                if (i.type == ItemID.LavaFishingHook) {
-                    modPlayer.lavaProof = true;
-                }
-                if (i.type == ItemID.LavaproofTackleBag) {
-                    modPlayer.lavaProof = true;
-                    modPlayer.highTest = true;
-                }
-                #endregion
-
-                #region //Yoyos
-                if (i.type == ItemID.YoyoBag) {
-                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipYoyoBag", EquipType.Waist);
-                }
-                #endregion
-
-                #region //Miscellaneous
-                if (i.type == ItemID.ClothierVoodooDoll) {
-                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipClothier", EquipType.Waist);
-                }
-                if (i.type == ItemID.CoinRing) {
-                    player.handon = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipCoin", EquipType.HandsOn);
-                }
-                /*if (i.type == ItemID.DiscountCard) {
-                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipCard", EquipType.Waist);
-                }*/
-                if (i.type == ItemID.GoldRing) {
-                    player.handon = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipGold", EquipType.HandsOn);
-                }
-                if (i.type == ItemID.GreedyRing) {
-                    player.handon = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipGreedy", EquipType.HandsOn);
-                }
-                if (i.type == ItemID.CordageGuide) {
-                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipCordage", EquipType.Waist);
-                }
-                if (i.type == ItemID.GuideVoodooDoll) {
-                    player.waist = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipGuide", EquipType.Waist);
-                }
-                if (i.type == ItemID.DontStarveShaderItem) {
-                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipThing", EquipType.Face);
-                }
-                #endregion
-
-                #region //Golf Balls
-                if (i.type == ItemID.GolfBall) {
-                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipWhite", EquipType.Face);
-                }
-                if (i.type == ItemID.GolfBallDyedBlack) {
-                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipBlack", EquipType.Face);
-                }
-                if (i.type == ItemID.GolfBallDyedBlue) {
-                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipBlue", EquipType.Face);
-                }
-                if (i.type == ItemID.GolfBallDyedBrown) {
-                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipBrown", EquipType.Face);
-                }
-                if (i.type == ItemID.GolfBallDyedCyan) {
-                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipCyan", EquipType.Face);
-                }
-                if (i.type == ItemID.GolfBallDyedGreen) {
-                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipGreen", EquipType.Face);
-                }
-                if (i.type == ItemID.GolfBallDyedLimeGreen) {
-                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipLime", EquipType.Face);
-                }
-                if (i.type == ItemID.GolfBallDyedOrange) {
-                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipOrange", EquipType.Face);
-                }
-                if (i.type == ItemID.GolfBallDyedPink) {
-                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipPink", EquipType.Face);
-                }
-                if (i.type == ItemID.GolfBallDyedPurple) {
-                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipPurple", EquipType.Face);
-                }
-                if (i.type == ItemID.GolfBallDyedRed) {
-                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipRed", EquipType.Face);
-                }
-                if (i.type == ItemID.GolfBallDyedSkyBlue) {
-                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipSkyBlue", EquipType.Face);
-                }
-                if (i.type == ItemID.GolfBallDyedTeal) {
-                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipTeal", EquipType.Face);
-                }
-                if (i.type == ItemID.GolfBallDyedViolet) {
-                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipViolet", EquipType.Face);
-                }
-                if (i.type == ItemID.GolfBallDyedYellow) {
-                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipYellow", EquipType.Face);
-                }
-                #endregion
-
-                #region //Expert
-                if (i.type == ItemID.RoyalGel) {
-                    modPlayer.royGel = true;
-                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipRoyal", EquipType.Face);
-                }
-                if (i.type == ItemID.BrainOfConfusion) {
-                    modPlayer.brain = true;
-                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipBrain", EquipType.Face);
-                }
-                if (i.type == ItemID.VolatileGelatin) {
-                    modPlayer.volGel = true;
-                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipVolatile", EquipType.Face);
-                }
-                if (i.type == ItemID.SporeSac) {
-                    modPlayer.spore = true;
-                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipSac", EquipType.Face);
-                }
-                if (i.type == ItemID.ShinyStone) {
-                    player.neck = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipShiny", EquipType.Neck);
-                }
-                if (i.type == ItemID.EmpressFlightBooster) {
-                    player.neck = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipSoar", EquipType.Neck);
-                }
-                if (i.type == ItemID.GravityGlobe) {
-                    modPlayer.gGlobe = true;
-                    player.face = (sbyte)EquipLoader.GetEquipSlot(Mod, "EquipGravity", EquipType.Face);
-                }
-                #endregion
+            if (item.type == ItemID.HighTestFishingLine || item.type == ItemID.AnglerTackleBag) {
+                modPlayer.highTest = true;
+            }
+            if (item.type == ItemID.LavaFishingHook) {
+                modPlayer.lavaProof = true;
+            }
+            if (item.type == ItemID.LavaproofTackleBag)  {
+                modPlayer.lavaProof = true;
+                modPlayer.highTest = true;
             }
         }
     }
