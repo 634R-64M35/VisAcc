@@ -19,7 +19,7 @@ namespace VisAcc {
 				return new[] { new Item(ModContent.ItemType<MathewsStylishBowtie>()) };
 			}
 
-			if (Player.name == "Draedon" || Player.name == "Draedon Gaming" || Player.name == "Phoebe" || Player.name == "Ada") {
+			if (Player.name == "Reika" || Player.name == "Ada") {
 				return new[] { new Item(ModContent.ItemType<CatEars>()) };
 			}
 

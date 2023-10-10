@@ -8,11 +8,8 @@ using Terraria.Graphics.Shaders;
 namespace VisAcc.Items {
     public class ArmorPolishDye : ModItem {
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Armor Polish Dye");
-            Tooltip.SetDefault("Unobtainable, only used to set an ID for the dye to be used when necessary");
-            if (!Main.dedServ) {
+            if (!Main.dedServ)
                 GameShaders.Armor.BindShader(Item.type, new ArmorShaderData(new Ref<Effect>(Mod.Assets.Request<Effect>("Effects/ArmorPolishShader", AssetRequestMode.ImmediateLoad).Value), "ArmorPolishShaderPass")).UseColor(0.65f, 0.65f, 0.65f);
-            }
         }
 
         public override void SetDefaults() {

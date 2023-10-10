@@ -5,169 +5,212 @@ using Terraria;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.EquipType;
 
 namespace VisAcc {
     public class VisAcc : Mod {
-        public static string currentDate;
-        public static int day;
-        public static int month;
+        // Thanks to Antirhinnum for optimizing and fixing a lot of code here
 
-        public override void Load() {
-            if (Main.netMode != NetmodeID.Server) {
-                //Movement
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/Aglet", EquipType.Shoes, name: "EquipAglet");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/AnkletOfTheWind", EquipType.Shoes, name : "EquipAnklet");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/LavaCharm", EquipType.Shield, name: "EquipLavaCharm");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/LuckyHorseshoe", EquipType.Shoes, name: "EquipLuckyHonse");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/MoltenCharm", EquipType.Shield, name: "EquipMoltCharm");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/NeptunesShell", EquipType.Shield, name: "EquipNepShell");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/ObsidianHorseshoe", EquipType.Shoes, name: "EquipObsHonse");
-                //Informational
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/DepthMeter", EquipType.Waist, name: "EquipDepth");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/Compass", EquipType.Waist, name: "EquipCompass");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/Radar", EquipType.Face, name: "EquipRadar");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/LifeformAnalyzer", EquipType.Back, name: "EquipLifeAnalyzer");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/TallyCounter", EquipType.Waist, name: "EquipTally");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/MetalDetector", EquipType.Waist, name: "EquipMetal");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/Stopwatch", EquipType.Waist, name: "EquipStopwatch");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/DPSMeter", EquipType.Front, name: "EquipDPS");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/FishermansPocketGuide", EquipType.Waist, name: "EquipFishGuide");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/WeatherRadio", EquipType.Beard, name: "EquipRadio");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/Sextant", EquipType.Shield, name: "EquipSextant");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/GPS", EquipType.Face, name: "EquipGPS");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/REK3000", EquipType.Face, name: "EquipREK");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/GoblinTech", EquipType.Front, name: "EquipGoblin");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/FishFinder", EquipType.Face, name: "EquipFishFinder");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/PDA", EquipType.Waist, name: "EquipPDA");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/MechanicalLens", EquipType.Face, name: "EquipLens");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/MechanicalRuler", EquipType.Waist, name: "EquipMechRuler");
-                //Health and Mana
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/CelestialMagnet", EquipType.Waist, name: "EquipCelMagnet");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/CelestialEmblem", EquipType.Waist, name: "EquipCelEmblem");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/MagnetFlower", EquipType.Waist, name: "EquipMagnetFlower");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/PhilosophersStone", EquipType.Neck, name: "EquipPhilStone");
-                //Combat
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/AdhesiveBandage", EquipType.Face, name: "EquipAdhBandage");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/AnkhCharm", EquipType.Waist, name: "EquipAnkh");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/ArmorBracingChest", EquipType.Neck, name: "EquipBracingChest");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/ArmorBracingPads", EquipType.HandsOn, name: "EquipBracingPads");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/AvengerEmblem", EquipType.Neck, name: "EquipAvenger");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/Bezoar", EquipType.HandsOn, name: "EquipBezoar");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/MoonCharm", EquipType.Neck, name: "EquipMoonCharm");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/MoonShell", EquipType.Neck, name: "EquipMoonShell");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/CelestialStone", EquipType.Neck, name: "EquipCelStone");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/CelestialShell", EquipType.Neck, name: "EquipCelShell");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/CountercurseMantra", EquipType.Shield, name: "EquipMantra");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/DestroyerEmblem", EquipType.Neck, name: "EquipDestroy");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/EyeoftheGolem", EquipType.Face, name: "EquipGolem");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/FastClock", EquipType.Waist, name: "EquipFastClock");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/FleshKnucklesHandsOn", EquipType.HandsOn, name: "EquipFleshOn");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/FleshKnucklesHandsOff", EquipType.HandsOff, name: "EquipFleshOff");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/HoneyComb", EquipType.Neck, name: "EquipComb");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/MagmaStone", EquipType.Neck, name: "EquipMagmaStone");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/MedicatedBandage", EquipType.Face, name: "EquipMedBandage");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/Megaphone", EquipType.Face, name: "EquipMegaphone");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/Nazar", EquipType.Neck, name: "EquipNazar");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/PocketMirror", EquipType.Waist, name: "EquipMirror");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/PutridScent", EquipType.Waist, name: "EquipScent");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/RangerEmblem", EquipType.Neck, name: "EquipRanger");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/ReconScope", EquipType.Back, name: "EquipRecon");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/RifleScope", EquipType.Back, name: "EquipRifle");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/SniperScope", EquipType.Back, name: "EquipSniper");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/SorcererEmblem", EquipType.Neck, name: "EquipSorcerer");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/SummonerEmblem", EquipType.Neck, name: "EquipSummoner");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/ThePlan", EquipType.Waist, name: "EquipPlan");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/TrifoldMap", EquipType.Waist, name: "EquipMap");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/WarriorEmblem", EquipType.Neck, name: "EquipWarrior");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/Vitamins", EquipType.Waist, name: "EquipVitamins");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/HerculesBeetle", EquipType.Neck, name: "EquipBeetle");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/NecromanticScroll", EquipType.Waist, name: "EquipScroll");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/PapyrusScarab", EquipType.Waist, name: "EquipScarab");
-                //Construction
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/PortableCementMixer", EquipType.Back, name: "EquipCement");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/AncientChisel", EquipType.Shield, name: "EquipChisel");
-                //Fishing
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/AnglerEarring", EquipType.Face, name: "EquipEarring");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/TackleBox", EquipType.Waist, name: "EquipTackle");
-                //Yoyos
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/YoyoBag", EquipType.Waist, name: "EquipYoyoBag");
-                //Miscellaneous
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/ClothierVoodooDoll", EquipType.Waist, name: "EquipClothier");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/CoinRing", EquipType.HandsOn, name: "EquipCoin");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/GoldRing", EquipType.HandsOn, name: "EquipGold");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/GreedyRing", EquipType.HandsOn, name: "EquipGreedy");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/GregBook", EquipType.Waist, name: "EquipCordage");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/GuideVoodooDoll", EquipType.Waist, name: "EquipGuide");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/RadioThing", EquipType.Face, name: "EquipThing");
-                //Golf Balls
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/GolfBallWhite", EquipType.Face, name: "EquipWhite");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/GolfBallBlack", EquipType.Face, name: "EquipBlack");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/GolfBallBlue", EquipType.Face, name: "EquipBlue");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/GolfBallBrown", EquipType.Face, name: "EquipBrown");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/GolfBallCyan", EquipType.Face, name: "EquipCyan");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/GolfBallGreen", EquipType.Face, name: "EquipGreen");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/GolfBallLime", EquipType.Face, name: "EquipLime");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/GolfBallOrange", EquipType.Face, name: "EquipOrange");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/GolfBallPink", EquipType.Face, name: "EquipPink");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/GolfBallPurple", EquipType.Face, name: "EquipPurple");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/GolfBallRed", EquipType.Face, name: "EquipRed");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/GolfBallSkyBlue", EquipType.Face, name: "EquipSkyBlue");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/GolfBallTeal", EquipType.Face, name: "EquipTeal");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/GolfBallViolet", EquipType.Face, name: "EquipViolet");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/GolfBallYellow", EquipType.Face, name: "EquipYellow");
-                //Expert
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/RoyalGel", EquipType.Face, name: "EquipRoyal");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/BrainOfConfusion", EquipType.Face, name: "EquipBrain");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/VolatileGelatin", EquipType.Face, name: "EquipVolatile");
-                //EquipLoader.AddEquipTexture(this, "VisAcc/Textures/SporeSac", EquipType.Face, name: "EquipSac");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/SporeSacAlt", EquipType.Face, name: "EquipSac");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/ShinyStone", EquipType.Neck, name: "EquipShiny");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/SoaringInsignia", EquipType.Neck, name: "EquipSoar");
-                EquipLoader.AddEquipTexture(this, "VisAcc/Textures/GravityGlobe", EquipType.Face, name: "EquipGravity");
+        private void EquipTexture(string texName, EquipType typeSlot, string itemName) =>
+            EquipTexture("VisAcc/Textures/" + texName, typeSlot, itemName);
 
-                // Make Armor Polish act like a dye to allow the player to polish their armor
-                GameShaders.Armor.BindShader(ItemID.ArmorPolish, new ArmorShaderData(new Ref<Effect>(Assets.Request<Effect>("Effects/ArmorPolishShader", AssetRequestMode.ImmediateLoad).Value), "ArmorPolishShaderPass")).UseColor(0.65f, 0.65f, 0.65f);
+        private void ArmorIDsSettings(string equipName, int slotType) {
+            // 0 is for the Back and DrawInBackpackLayer
+            // 1 is for the Face and DrawInFaceHeadLayer, 2 is for DrawInFaceFlowerLayer, 3 for PreventHairDraw
+            switch (slotType) {
+                case 0:
+                    ArmorIDs.Back.Sets.DrawInBackpackLayer[EquipLoader.GetEquipSlot(this, equipName, Back)] = true;
+                    break;
+
+                case 1:
+                    ArmorIDs.Face.Sets.DrawInFaceHeadLayer[EquipLoader.GetEquipSlot(this, equipName, Face)] = true;
+                    break;
+
+                case 2:
+                    ArmorIDs.Face.Sets.DrawInFaceFlowerLayer[EquipLoader.GetEquipSlot(this, equipName, Face)] = true;
+                    break;
+
+                case 3:
+                    ArmorIDs.Face.Sets.PreventHairDraw[EquipLoader.GetEquipSlot(this, equipName, Face)] = true;
+                    break;
             }
 
-            DateTime dateTime = DateTime.Now;
-            currentDate = dateTime.ToString("dd/MM/yyyy");
-            day = dateTime.Day;
-            month = dateTime.Month;
+        }
+
+        public override void Load() {
+            #region Movement
+            EquipTexture("Aglet", Shoes, "eAglet");
+            EquipTexture("AnkletOfTheWind", Shoes, "eAnklet");
+            EquipTexture("LavaCharm", Shield, "eLavaCharm");
+            EquipTexture("LuckyHorseshoe", Shoes, "eLuckyHonse");
+            EquipTexture("MoltenCharm", Shield, "eMoltCharm");
+            EquipTexture("NeptunesShell", Shield, "eNepShell");
+            EquipTexture("ObsidianHorseshoe", Shoes, "eObsHonse");
+            #endregion
+
+            #region Informational
+            EquipTexture("DepthMeter", Waist, "eDepth");
+            EquipTexture("Compass", Waist, "eCompass");
+            EquipTexture("Radar", Face, "eRadar");
+            EquipTexture("LifeformAnalyzer", Back, "eLifeAnalyzer");
+            EquipTexture("TallyCounter", Waist, "eTally");
+            EquipTexture("MetalDetector", Waist, "eMetal");
+            EquipTexture("Stopwatch", Waist, "eStopwatch");
+            EquipTexture("DPSMeter", Front, "eDPS");
+            EquipTexture("FishermansPocketGuide", Waist, "eFishGuide");
+            EquipTexture("WeatherRadio", Beard, "eRadio");
+            EquipTexture("Sextant", Shield, "eSextant");
+            EquipTexture("GPS", Face, "eGPS");
+            EquipTexture("REK3000", Face, "eREK");
+            EquipTexture("GoblinTech", Front, "eGoblin");
+            EquipTexture("FishFinder", Face, "eFishFinder");
+            EquipTexture("PDA", Waist, "ePDA");
+            EquipTexture("MechanicalLens", Face, "eLens");
+            EquipTexture("MechanicalRuler", Waist, "eMechRuler");
+            #endregion
+
+            #region Health and Mana
+            EquipTexture("CelestialMagnet", Waist, "eCelMagnet");
+            EquipTexture("CelestialEmblem", Waist, "eCelEmblem");
+            EquipTexture("MagnetFlower", Waist, "eMagnetFlower");
+            EquipTexture("PhilosophersStone", Neck, "ePhilStone");
+            #endregion
+
+            #region Combat
+            EquipTexture("AdhesiveBandage", Face, "eAdhBandage");
+            EquipTexture("AnkhCharm", Waist, "eAnkh");
+            EquipTexture("ArmorBracingChest", Neck, "eBracingChest");
+            EquipTexture("ArmorBracingPads", HandsOn, "eBracingPads");
+            EquipTexture("AvengerEmblem", Neck, "eAvenger");
+            EquipTexture("Bezoar", HandsOn, "eBezoar");
+            EquipTexture("MoonCharm", Neck, "eMoonCharm");
+            EquipTexture("MoonShell", Neck, "eMoonShell");
+            EquipTexture("CelestialStone", Neck, "eCelStone");
+            EquipTexture("CelestialShell", Neck, "eCelShell");
+            EquipTexture("CountercurseMantra", Shield, "eMantra");
+            EquipTexture("DestroyerEmblem", Neck, "eDestroy");
+            EquipTexture("EyeoftheGolem", Face, "eGolem");
+            EquipTexture("FastClock", Waist, "eFastClock");
+            EquipTexture("FleshKnucklesHandsOn", HandsOn, "eFleshOn");
+            EquipTexture("FleshKnucklesHandsOff", HandsOff, "eFleshOff");
+            EquipTexture("HoneyComb", Neck, "eComb");
+            EquipTexture("MagmaStone", Neck, "eMagmaStone");
+            EquipTexture("MedicatedBandage", Face, "eMedBandage");
+            EquipTexture("Megaphone", Face, "eMegaphone");
+            EquipTexture("Nazar", Neck, "eNazar");
+            EquipTexture("PocketMirror", Waist, "eMirror");
+            EquipTexture("PutridScent", Waist, "eScent");
+            EquipTexture("RangerEmblem", Neck, "eRanger");
+            EquipTexture("ReconScope", Back, "eRecon");
+            EquipTexture("RifleScope", Back, "eRifle");
+            EquipTexture("SniperScope", Back, "eSniper");
+            EquipTexture("SorcererEmblem", Neck, "eSorcerer");
+            EquipTexture("SummonerEmblem", Neck, "eSummoner");
+            EquipTexture("ThePlan", Waist, "ePlan");
+            EquipTexture("TrifoldMap", Waist, "eMap");
+            EquipTexture("WarriorEmblem", Neck, "eWarrior");
+            EquipTexture("Vitamins", Waist, "eVitamins");
+            EquipTexture("HerculesBeetle", Neck, "eBeetle");
+            EquipTexture("NecromanticScroll", Waist, "eScroll");
+            EquipTexture("PapyrusScarab", Waist, "eScarab");
+            #endregion
+
+            #region Construction
+            EquipTexture("PortableCementMixer", Back, "eCement");
+            EquipTexture("AncientChisel", Shield, "eChisel");
+            #endregion
+
+            #region Fishing
+            EquipTexture("AnglerEarring", Face, "eEarring");
+            EquipTexture("TackleBox", Waist, "eTackle");
+            #endregion
+
+            #region Miscellaneous
+            EquipTexture("YoyoBag", Waist, "eYoyoBag");
+            EquipTexture("ClothierVoodooDoll", Waist, "eClothier");
+            EquipTexture("CoinRing", HandsOn, "eCoin");
+            EquipTexture("GoldRing", HandsOn, "eGold");
+            EquipTexture("GreedyRing", HandsOn, "eGreedy");
+            EquipTexture("GregBook", Waist, "eCordage");
+            EquipTexture("GuideVoodooDoll", Waist, "eGuide");
+            EquipTexture("RadioThing", Face, "eThing");
+            #endregion
+
+            #region Golf Balls
+            EquipTexture("GolfBallWhite", Face, "eWhite");
+            EquipTexture("GolfBallBlack", Face, "eBlack");
+            EquipTexture("GolfBallBlue", Face, "eBlue");
+            EquipTexture("GolfBallBrown", Face, "eBrown");
+            EquipTexture("GolfBallCyan", Face, "eCyan");
+            EquipTexture("GolfBallGreen", Face, "eGreen");
+            EquipTexture("GolfBallLime", Face, "eLime");
+            EquipTexture("GolfBallOrange", Face, "eOrange");
+            EquipTexture("GolfBallPink", Face, "ePink");
+            EquipTexture("GolfBallPurple", Face, "ePurple");
+            EquipTexture("GolfBallRed", Face, "eRed");
+            EquipTexture("GolfBallSkyBlue", Face, "eSkyBlue");
+            EquipTexture("GolfBallTeal", Face, "eTeal");
+            EquipTexture("GolfBallViolet", Face, "eViolet");
+            EquipTexture("GolfBallYellow", Face, "eYellow");
+            #endregion
+
+            #region Expert
+            EquipTexture("RoyalGel", Face, "eRoyal");
+            EquipTexture("BrainOfConfusion", Face, "eBrain");
+            EquipTexture("VolatileGelatin", Face, "eVolatile");
+            //EquipTexture("SporeSac", Face, "eSac");
+            EquipTexture("SporeSacAlt", Face, "eSac");
+            EquipTexture("ShinyStone", Neck, "eShiny");
+            EquipTexture("SoaringInsignia", Neck, "eSoar");
+            EquipTexture("GravityGlobe", Face, "eGravity");
+            #endregion
+
+            // Make Armor Polish act like a dye to allow the player to polish their armor
+            GameShaders.Armor.BindShader(ItemID.ArmorPolish, 
+                new ArmorShaderData(new Ref<Effect>(Assets.Request<Effect>("Effects/ArmorPolishShader", AssetRequestMode.ImmediateLoad).Value), 
+                "ArmorPolishShaderPass")).UseColor(0.65f, 0.65f, 0.65f);
+
+            if (Main.netMode == NetmodeID.Server) 
+                return;
         }
 
         public override void PostSetupContent() {
             // Set ArmorIDs sets for the added equips
             if (!Main.dedServ) {
-                ArmorIDs.Back.Sets.DrawInBackpackLayer[EquipLoader.GetEquipSlot(this, "EquipRecon", EquipType.Back)] = true;
-                ArmorIDs.Back.Sets.DrawInBackpackLayer[EquipLoader.GetEquipSlot(this, "EquipRifle", EquipType.Back)] = true;
-                ArmorIDs.Back.Sets.DrawInBackpackLayer[EquipLoader.GetEquipSlot(this, "EquipSniper", EquipType.Back)] = true;
-                ArmorIDs.Back.Sets.DrawInBackpackLayer[EquipLoader.GetEquipSlot(this, "EquipCement", EquipType.Back)] = true;
+                #region Back
+                ArmorIDsSettings("eRecon", 0);
+                ArmorIDsSettings("eRifle", 0);
+                ArmorIDsSettings("eSniper", 0);
+                ArmorIDsSettings("eCement", 0);
+                #endregion
 
-                ArmorIDs.Face.Sets.DrawInFaceHeadLayer[EquipLoader.GetEquipSlot(this, "EquipGolem", EquipType.Face)] = true;
-                ArmorIDs.Face.Sets.DrawInFaceHeadLayer[EquipLoader.GetEquipSlot(this, "EquipMegaphone", EquipType.Face)] = true;
-                ArmorIDs.Face.Sets.DrawInFaceHeadLayer[EquipLoader.GetEquipSlot(this, "EquipThing", EquipType.Face)] = true;
+                #region Face
+                ArmorIDsSettings("eGolem", 1);
+                ArmorIDsSettings("eMegaphone", 1);
+                ArmorIDsSettings("eThing", 1);
+                ArmorIDsSettings("eRoyal", 1);
+                ArmorIDsSettings("eRoyal", 1);
 
-                ArmorIDs.Face.Sets.DrawInFaceFlowerLayer[EquipLoader.GetEquipSlot(this, "EquipWhite", EquipType.Face)] = true;
-                ArmorIDs.Face.Sets.DrawInFaceFlowerLayer[EquipLoader.GetEquipSlot(this, "EquipBlack", EquipType.Face)] = true;
-                ArmorIDs.Face.Sets.DrawInFaceFlowerLayer[EquipLoader.GetEquipSlot(this, "EquipBlue", EquipType.Face)] = true;
-                ArmorIDs.Face.Sets.DrawInFaceFlowerLayer[EquipLoader.GetEquipSlot(this, "EquipBrown", EquipType.Face)] = true;
-                ArmorIDs.Face.Sets.DrawInFaceFlowerLayer[EquipLoader.GetEquipSlot(this, "EquipCyan", EquipType.Face)] = true;
-                ArmorIDs.Face.Sets.DrawInFaceFlowerLayer[EquipLoader.GetEquipSlot(this, "EquipGreen", EquipType.Face)] = true;
-                ArmorIDs.Face.Sets.DrawInFaceFlowerLayer[EquipLoader.GetEquipSlot(this, "EquipLime", EquipType.Face)] = true;
-                ArmorIDs.Face.Sets.DrawInFaceFlowerLayer[EquipLoader.GetEquipSlot(this, "EquipOrange", EquipType.Face)] = true;
-                ArmorIDs.Face.Sets.DrawInFaceFlowerLayer[EquipLoader.GetEquipSlot(this, "EquipPink", EquipType.Face)] = true;
-                ArmorIDs.Face.Sets.DrawInFaceFlowerLayer[EquipLoader.GetEquipSlot(this, "EquipPurple", EquipType.Face)] = true;
-                ArmorIDs.Face.Sets.DrawInFaceFlowerLayer[EquipLoader.GetEquipSlot(this, "EquipRed", EquipType.Face)] = true;
-                ArmorIDs.Face.Sets.DrawInFaceFlowerLayer[EquipLoader.GetEquipSlot(this, "EquipSkyBlue", EquipType.Face)] = true;
-                ArmorIDs.Face.Sets.DrawInFaceFlowerLayer[EquipLoader.GetEquipSlot(this, "EquipTeal", EquipType.Face)] = true;
-                ArmorIDs.Face.Sets.DrawInFaceFlowerLayer[EquipLoader.GetEquipSlot(this, "EquipViolet", EquipType.Face)] = true;
-                ArmorIDs.Face.Sets.DrawInFaceFlowerLayer[EquipLoader.GetEquipSlot(this, "EquipYellow", EquipType.Face)] = true;
+                ArmorIDsSettings("eWhite", 2);
+                ArmorIDsSettings("eBlack", 2);
+                ArmorIDsSettings("eBlue", 2);
+                ArmorIDsSettings("eBrown", 2);
+                ArmorIDsSettings("eCyan", 2);
+                ArmorIDsSettings("eGreen", 2);
+                ArmorIDsSettings("eLime", 2);
+                ArmorIDsSettings("eOrange", 2);
+                ArmorIDsSettings("ePink", 2);
+                ArmorIDsSettings("ePurple", 2);
+                ArmorIDsSettings("eRed", 2);
+                ArmorIDsSettings("eSkyBlue", 2);
+                ArmorIDsSettings("eTeal", 2);
+                ArmorIDsSettings("eViolet", 2);
+                ArmorIDsSettings("eYellow", 2);
+                ArmorIDsSettings("eSac", 2);
 
-                ArmorIDs.Face.Sets.DrawInFaceHeadLayer[EquipLoader.GetEquipSlot(this, "EquipRoyal", EquipType.Face)] = true;
-                ArmorIDs.Face.Sets.DrawInFaceHeadLayer[EquipLoader.GetEquipSlot(this, "EquipVolatile", EquipType.Face)] = true;
-                ArmorIDs.Face.Sets.PreventHairDraw[EquipLoader.GetEquipSlot(this, "EquipBrain", EquipType.Face)] = true;
-                ArmorIDs.Face.Sets.PreventHairDraw[EquipLoader.GetEquipSlot(this, "EquipGravity", EquipType.Face)] = true;
-                ArmorIDs.Face.Sets.DrawInFaceFlowerLayer[EquipLoader.GetEquipSlot(this, "EquipSac", EquipType.Face)] = true;
+                ArmorIDsSettings("eBrain", 3);
+                ArmorIDsSettings("eGravity", 3);
+                #endregion
             }
         }
     }

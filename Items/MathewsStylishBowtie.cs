@@ -7,11 +7,6 @@ using Terraria.ID;
 namespace VisAcc.Items {
     [AutoloadEquip(EquipType.Neck)]
     public class MathewsStylishBowtie : ModItem {
-        public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Mathew's Stylish Bowtie");
-            Tooltip.SetDefault("Great for impersonating idiots!\nDev Item");
-        }
-
         public override void ModifyTooltips(List<TooltipLine> tooltips) {
             foreach (TooltipLine tooltipLine in tooltips)
                 if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
@@ -23,7 +18,6 @@ namespace VisAcc.Items {
             Item.height = 22;
             Item.value = Item.sellPrice(0, 0, 91, 79);
             Item.rare = ItemRarityID.Orange;
-            Item.accessory = true;
             Item.vanity = true;
         }
 	}

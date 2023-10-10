@@ -31,25 +31,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\USER\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\Ada Phoebe\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\USER\\Documents\\my games\\Terraria\\tModLoader\\ModSources\\VisAcc\\VisAcc.csproj",
+      "projectUniqueName": "C:\\Users\\Ada Phoebe\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\VisAcc\\VisAcc.csproj",
       "projectName": "VisAcc",
-      "projectPath": "C:\\Users\\USER\\Documents\\my games\\Terraria\\tModLoader\\ModSources\\VisAcc\\VisAcc.csproj",
-      "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\USER\\Documents\\my games\\Terraria\\tModLoader\\ModSources\\VisAcc\\obj\\",
+      "projectPath": "C:\\Users\\Ada Phoebe\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\VisAcc\\VisAcc.csproj",
+      "packagesPath": "C:\\Users\\Ada Phoebe\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Ada Phoebe\\Documents\\My Games\\Terraria\\tModLoader\\ModSources\\VisAcc\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\Ada Phoebe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -85,7 +80,8 @@
           "net47",
           "net471",
           "net472",
-          "net48"
+          "net48",
+          "net481"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -94,7 +90,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

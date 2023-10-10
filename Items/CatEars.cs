@@ -8,18 +8,14 @@ using Microsoft.Xna.Framework.Graphics;
 namespace VisAcc.Items {
     [AutoloadEquip(EquipType.Head)]
     public class CatEars : ModItem {
-        public override void SetStaticDefaults() {
-            DisplayName.SetDefault("RGB Cat Ears");
-            Tooltip.SetDefault(VisAcc.month == 4 ? "Burunyuu!" : "Glows in the dark!\nDev Item");
+        public override void SetStaticDefaults() =>
             ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true;
-        }
 
         public override void SetDefaults() {
             Item.width = 30;
             Item.height = 24;
-            Item.value = Item.sellPrice(0, 0, 16, 69);
+            Item.value = Item.sellPrice(0, 1, 6, 69);
             Item.rare = ItemRarityID.Orange;
-            Item.accessory = true;
             Item.vanity = true;
         }
 
