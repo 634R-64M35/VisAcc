@@ -15,3 +15,5 @@ As with all code by me, this mod is 100% free and open source, this means you ca
 
 Github: https://github.com/634R-64M35/VisAcc
 Forums: https://forums.terraria.org/index.php?threads/visual-accessories.113129/
+
+Current Version: 1.0

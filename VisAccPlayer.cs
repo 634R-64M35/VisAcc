@@ -1,6 +1,8 @@
+using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using System.Linq;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ModLoader;
 using VisAcc.Items;
 
@@ -12,9 +14,9 @@ namespace VisAcc {
 		public override void ResetEffects() {
 			highTest = false;
 			lavaProof = false;
-		}
+        }
 
-		public override IEnumerable<Item> AddStartingItems(bool mediumCoreDeath) {
+        public override IEnumerable<Item> AddStartingItems(bool mediumCoreDeath) {
 			if (Player.name == "Mathew" || Player.name == "Maple") {
 				return new[] { new Item(ModContent.ItemType<MathewsStylishBowtie>()) };
 			}

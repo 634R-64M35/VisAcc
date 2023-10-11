@@ -1,25 +1,26 @@
+using CsvHelper.TypeConversion;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameContent;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace VisAcc {
 	public class VisAccGlobalProjectile : GlobalProjectile {
-
-		public override void OnSpawn(Projectile projectile, IEntitySource source) {
-			VisAccPlayer modPlayer = Main.LocalPlayer.GetModPlayer<VisAccPlayer>();
-			if (modPlayer.lavaProof && projectile.bobber) {
-				modPlayer.lavaProof = false;
-			}
+        // Checks if a bobber was created and if any fishing item is equipped, resets both fishing vars
+        public override void OnSpawn(Projectile projectile, IEntitySource source) {
+            VisAccPlayer modPlayer = Main.LocalPlayer.GetModPlayer<VisAccPlayer>();
+            modPlayer.lavaProof = false;
 			modPlayer.highTest = false;
 		}
 
+		// Draws the bobber/hook
 		public override bool PreDraw(Projectile projectile, ref Color drawColor) {
-			VisAccPlayer modPlayer = Main.LocalPlayer.GetModPlayer<VisAccPlayer>();
-			if (modPlayer.lavaProof && projectile.bobber) {
+            VisAccPlayer modPlayer = Main.LocalPlayer.GetModPlayer<VisAccPlayer>();
+            if (modPlayer.lavaProof && projectile.bobber) {
 				Main.instance.LoadProjectile(projectile.type);
 				Texture2D hook = ModContent.Request<Texture2D>("VisAcc/Textures/LavaProofFishingHook").Value;
 				Vector2 drawOrigin = new(hook.Width / 2, hook.Height / 2);
@@ -30,50 +31,47 @@ namespace VisAcc {
 			return true;
 		}
 
-		public override bool PreDrawExtras(Projectile projectile) {
-			VisAccPlayer modPlayer = Main.LocalPlayer.GetModPlayer<VisAccPlayer>();
-			if (modPlayer.highTest == true) {
-				const int XPositionAdditive = 45;
-				const float YPositionAdditive = 35f;
+		// Old code for overriding high test fishing line, removed for the time being
+		/*public override bool PreDrawExtras(Projectile projectile) {
+            VisAccPlayer modPlayer = Main.LocalPlayer.GetModPlayer<VisAccPlayer>();
+            Player player = Main.player[projectile.owner];
 
-				Player player = Main.player[projectile.owner];
-
-				if (!projectile.bobber || player.inventory[player.selectedItem].holdStyle <= 0)
-					return false;
-
-				Vector2 lineOrigin = player.MountedCenter;
-				lineOrigin.Y += player.gfxOffY;
-				int type = player.inventory[player.selectedItem].type;
-
-				// This variable is used to account for Gravitation Potions
+            if (modPlayer.highTest && projectile.bobber) {
+                #region Vars
+                // Sets line origin
+                int xPositionAdditive = 45;
+                float yPositionAdditive = 35f;
 				float gravity = player.gravDir;
+                Vector2 lineOrigin = player.MountedCenter;
+                lineOrigin.Y += player.gfxOffY;
 
-				lineOrigin.X += XPositionAdditive * player.direction;
-
-				if (player.direction < 0)
-					lineOrigin.X -= 13f;
-			
-				lineOrigin.Y -= YPositionAdditive * gravity;
-
-				if (gravity == -1f)
+				// Adjusts based on player gravity and direction
+                lineOrigin.X += xPositionAdditive * player.direction;
+                if (player.direction < 0)
+                    lineOrigin.X -= 13f;
+                lineOrigin.Y -= yPositionAdditive * gravity;
+                if (gravity == -1f)
 					lineOrigin.Y -= 12f;
 
-				// RotatedRelativePoint adjusts lineOrigin to account for player rotation.
+				// Adjusts based on player rotation
 				lineOrigin = player.RotatedRelativePoint(lineOrigin + new Vector2(8f), true) - new Vector2(8f);
 				Vector2 playerToProjectile = projectile.Center - lineOrigin;
 				bool canDraw = true;
 
-				if (playerToProjectile.X == 0f && playerToProjectile.Y == 0f)
+                // Guh
+                float playerToProjectileMagnitude = playerToProjectile.Length();
+                playerToProjectileMagnitude = 12f / playerToProjectileMagnitude;
+                playerToProjectile *= playerToProjectileMagnitude;
+                lineOrigin -= playerToProjectile;
+                playerToProjectile = projectile.Center - lineOrigin;
+
+                if ((playerToProjectile.X == 0f && playerToProjectile.Y == 0f) || player.inventory[player.selectedItem].holdStyle <= 0)
 					return false;
+                #endregion
 
-				float playerToProjectileMagnitude = playerToProjectile.Length();
-				playerToProjectileMagnitude = 12f / playerToProjectileMagnitude;
-				playerToProjectile *= playerToProjectileMagnitude;
-				lineOrigin -= playerToProjectile;
-				playerToProjectile = projectile.Center - lineOrigin;
-
-				// This math draws the line, while allowing the line to sag.
-				while (canDraw) {
+                #region Meat and Potatoes
+                // This math draws the line, while allowing the line to sag.
+                while (canDraw) {
 					float height = 12f;
 					float positionMagnitude = playerToProjectile.Length();
 
@@ -135,8 +133,9 @@ namespace VisAcc {
 					}
 				}
 				return false;
-			}
-			return true;
-		}
+                #endregion
+            }
+            return true;
+		}*/
 	}
 }

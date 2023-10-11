@@ -1,6 +1,5 @@
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
-using System;
 using Terraria;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
@@ -12,7 +11,7 @@ namespace VisAcc {
         // Thanks to Antirhinnum for optimizing and fixing a lot of code here
 
         private void EquipTexture(string texName, EquipType typeSlot, string itemName) =>
-            EquipTexture("VisAcc/Textures/" + texName, typeSlot, itemName);
+            EquipLoader.AddEquipTexture(this, "VisAcc/Textures/" + texName, typeSlot, name: itemName);
 
         private void ArmorIDsSettings(string equipName, int slotType) {
             // 0 is for the Back and DrawInBackpackLayer
@@ -158,7 +157,6 @@ namespace VisAcc {
             EquipTexture("RoyalGel", Face, "eRoyal");
             EquipTexture("BrainOfConfusion", Face, "eBrain");
             EquipTexture("VolatileGelatin", Face, "eVolatile");
-            //EquipTexture("SporeSac", Face, "eSac");
             EquipTexture("SporeSacAlt", Face, "eSac");
             EquipTexture("ShinyStone", Neck, "eShiny");
             EquipTexture("SoaringInsignia", Neck, "eSoar");
@@ -166,11 +164,11 @@ namespace VisAcc {
             #endregion
 
             // Make Armor Polish act like a dye to allow the player to polish their armor
-            GameShaders.Armor.BindShader(ItemID.ArmorPolish, 
-                new ArmorShaderData(new Ref<Effect>(Assets.Request<Effect>("Effects/ArmorPolishShader", AssetRequestMode.ImmediateLoad).Value), 
+            GameShaders.Armor.BindShader(ItemID.ArmorPolish,
+                new ArmorShaderData(new Ref<Effect>(Assets.Request<Effect>("Effects/ArmorPolishShader", AssetRequestMode.ImmediateLoad).Value),
                 "ArmorPolishShaderPass")).UseColor(0.65f, 0.65f, 0.65f);
 
-            if (Main.netMode == NetmodeID.Server) 
+            if (Main.netMode == NetmodeID.Server)
                 return;
         }
 
