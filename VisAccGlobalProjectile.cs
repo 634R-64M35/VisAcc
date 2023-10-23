@@ -32,6 +32,7 @@ namespace VisAcc {
 		}
 
 		// Old code for overriding high test fishing line, removed for the time being
+
 		/*public override bool PreDrawExtras(Projectile projectile) {
             VisAccPlayer modPlayer = Main.LocalPlayer.GetModPlayer<VisAccPlayer>();
             Player player = Main.player[projectile.owner];

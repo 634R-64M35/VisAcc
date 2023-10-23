@@ -287,6 +287,26 @@ namespace VisAcc {
                     item.shieldSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "eChisel", EquipType.Shield);
                     break;
 
+                case ItemID.Toolbox:
+                    item.waistSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "eBox", EquipType.Waist);
+                    break;
+
+                case ItemID.PaintSprayer:
+                    item.waistSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "eSpray", EquipType.Waist);
+                    break;
+
+                case ItemID.ExtendoGrip:
+                    item.handOnSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "eGrip", EquipType.HandsOn);
+                    break;
+
+                case ItemID.BrickLayer:
+                    item.waistSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "eLayer", EquipType.Waist);
+                    break;
+
+                case ItemID.ActuationAccessory:
+                    item.handOnSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "ePress", EquipType.HandsOn);
+                    break;
+
                 #endregion
 
                 #region Fishing
@@ -402,10 +422,14 @@ namespace VisAcc {
                 case ItemID.DontStarveShaderItem:
                     item.faceSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "eThing", EquipType.Face);
                     break;
-                /*case ItemID.DiscountCard:
+
+                case ItemID.DiscountCard:
                     item.waistSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "eCard", EquipType.Waist);
                     break;
-                */
+
+                case ItemID.LuckyCoin:
+                    item.neckSlot = (sbyte)EquipLoader.GetEquipSlot(Mod, "eLuckCoin", EquipType.Neck);
+                    break;
 
                 #endregion
 

@@ -117,6 +117,11 @@ namespace VisAcc {
             #region Construction
             EquipTexture("PortableCementMixer", Back, "eCement");
             EquipTexture("AncientChisel", Shield, "eChisel");
+            EquipTexture("ToolBox", Waist, "eBox");
+            EquipTexture("PaintSprayer", Waist, "eSpray");
+            EquipTexture("ExtendoGrip", HandsOn, "eGrip");
+            EquipTexture("BrickLayer", Waist, "eLayer");
+            EquipTexture("Presserator", HandsOn, "ePress");
             #endregion
 
             #region Fishing
@@ -133,6 +138,8 @@ namespace VisAcc {
             EquipTexture("GregBook", Waist, "eCordage");
             EquipTexture("GuideVoodooDoll", Waist, "eGuide");
             EquipTexture("RadioThing", Face, "eThing");
+            EquipTexture("DiscountCard", Waist, "eCard");
+            EquipTexture("LuckyCoin", Neck, "eLuckCoin");
             #endregion
 
             #region Golf Balls
@@ -183,11 +190,9 @@ namespace VisAcc {
                 #endregion
 
                 #region Face
-                ArmorIDsSettings("eGolem", 1);
-                ArmorIDsSettings("eMegaphone", 1);
-                ArmorIDsSettings("eThing", 1);
-                ArmorIDsSettings("eRoyal", 1);
-                ArmorIDsSettings("eRoyal", 1);
+                ArmorIDsSettings("eMegaphone", 3);
+                ArmorIDsSettings("eRoyal", 3);
+                ArmorIDsSettings("eVolatile", 3);
 
                 ArmorIDsSettings("eWhite", 2);
                 ArmorIDsSettings("eBlack", 2);
