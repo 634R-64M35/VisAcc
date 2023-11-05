@@ -4,6 +4,8 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 using Microsoft.Xna.Framework.Graphics;
+using Terraria.DataStructures;
+
 
 namespace VisAcc.Items {
     [AutoloadEquip(EquipType.Head)]
@@ -17,18 +19,21 @@ namespace VisAcc.Items {
             Item.value = Item.sellPrice(0, 1, 6, 69);
             Item.rare = ItemRarityID.Orange;
             Item.vanity = true;
+            Item.accessory = true;
+        }
+
+        public override void UpdateEquip(Player player) {
+            player.GetModPlayer<VisAccPlayer>().catEars = true;
+        }
+
+        public override void UpdateVanity(Player player) {
+            player.GetModPlayer<VisAccPlayer>().catEars = true;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips) {
             foreach (TooltipLine tooltipLine in tooltips)
                 if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")
                     tooltipLine.OverrideColor = new Color(235, 4, 80);
-        }
-
-        public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI) {
-            Texture2D glowMask = ModContent.Request<Texture2D>("VisAcc/Items/CatEars_Head_Glow").Value;
-            Rectangle frame = glowMask.Frame(1, 20, 20);
-            Main.EntitySpriteDraw (glowMask, Item.position, frame, Color.White, 0f, new Vector2(0, 0), 1, SpriteEffects.None, 0);
         }
     }
 }
