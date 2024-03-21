@@ -6,7 +6,7 @@ using Terraria.ID;
 
 namespace VisAcc.Items {
     [AutoloadEquip(EquipType.Neck)]
-    public class MathewsStylishBowtie : ModItem {
+    public class MaplesStylishBowtie : ModItem {
         public override void ModifyTooltips(List<TooltipLine> tooltips) {
             foreach (TooltipLine tooltipLine in tooltips)
                 if (tooltipLine.Mod == "Terraria" && tooltipLine.Name == "ItemName")

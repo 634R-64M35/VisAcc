@@ -14,11 +14,16 @@ Items: {
 	}
 
 	MathewsStylishBowtie: {
-		DisplayName: Mathews Stylish Bowtie
+		DisplayName: Maple's Stylish Bowtie
 		Tooltip:
 			'''
 			Great for impersonating idiots!
 			Dev Item
 			'''
+	}
+
+	MaplesStylishBowtie: {
+		DisplayName: Maples Stylish Bowtie
+		Tooltip: ""
 	}
 }

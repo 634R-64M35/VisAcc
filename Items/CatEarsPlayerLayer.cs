@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
@@ -9,14 +8,20 @@ namespace VisAcc.Items {
     public class CatEarsPlayerLayer : PlayerDrawLayer {
         public static int frame;
         public static int frameCounter;
-        public static bool CatEars = false;
+        public static bool catEars = false;
         public override bool IsHeadLayer => true;
         public override Position GetDefaultPosition() => new AfterParent(PlayerDrawLayers.Head);
 
         public override bool GetDefaultVisibility(PlayerDrawSet drawInfo) {
-            if (drawInfo.drawPlayer.GetModPlayer<VisAccPlayer>().catEars)
-                CatEars = true;
-            return CatEars;
+            bool ears = false;
+            for (int n = 13; n < 18 + drawInfo.drawPlayer.extraAccessorySlots; n++) {
+                Item item = drawInfo.drawPlayer.armor[n];
+                if (item.type == ModContent.ItemType<CatEars>())
+                    ears = true;
+            }
+
+            catEars = ears || drawInfo.drawPlayer.GetModPlayer<VisAccPlayer>().catEars;
+            return ears || drawInfo.drawPlayer.GetModPlayer<VisAccPlayer>().catEars;
         }
 
         protected override void Draw(ref PlayerDrawSet drawInfo) {
@@ -48,7 +53,7 @@ namespace VisAcc.Items {
                 secondyoffset = 0;
 
             frameCounter++;
-            if (frameCounter > 4) {
+            if (frameCounter > 8) {
                 frameCounter = 0;
                 frame++;
                 if (frame > 8)
@@ -76,7 +81,7 @@ namespace VisAcc.Items {
         public override Position GetDefaultPosition() => new BeforeParent(PlayerDrawLayers.Head);
 
         public override bool GetDefaultVisibility(PlayerDrawSet drawInfo) { 
-            return CatEarsPlayerLayer.CatEars; 
+            return CatEarsPlayerLayer.catEars;
         }
 
         protected override void Draw(ref PlayerDrawSet drawInfo) {
@@ -85,6 +90,5 @@ namespace VisAcc.Items {
 
             CatEarsPlayerLayer.Mortis(ref drawInfo, "CatEars_Anim_Back");
         }
-
     }
 }

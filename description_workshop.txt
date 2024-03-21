@@ -8,13 +8,13 @@ Visual Accessories provides a solution! Simply equip the item of your choosing a
 
 The base mod supports only vanilla, more addons with compatilibity for other mods are on the way!
 
-Sprites by: Mathew
+Sprites by: Maple
 Code by: Reika & Antirhinnum
 Workshop images by: Espresso Decaf
 
 For any inquiries, suggestions, or bug reports, contact @reika_chang on Discord or leave a comment here.
 
 As with all code by me, this mod is 100% free and open source, this means you can modify and redistribute to your heart's content. 
-*However* please credit both Mathew for the sprites and me for the original code. It'd also be appreciated if you told me about it!
+*However* please credit both Maple for the sprites and me for the original code. It'd also be appreciated if you told me about it!
 
 Current Version: 1.0

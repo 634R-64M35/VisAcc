@@ -22,13 +22,11 @@ namespace VisAcc {
         }
 
 		public override IEnumerable<Item> AddStartingItems(bool mediumCoreDeath) {
-			if (Player.name == "Mathew" || Player.name == "Maple") {
-				return new[] { new Item(ModContent.ItemType<MathewsStylishBowtie>()) };
-			}
+			if (Player.name == "Maple" || Player.name == "maple")
+				return new[] { new Item(ModContent.ItemType<MaplesStylishBowtie>()) };
 
-			if (Player.name == "Reika" || Player.name == "Ada") {
+			if (Player.name == "Reika" || Player.name == "Ada" || Player.name == "reika" || Player.name == "ada")
 				return new[] { new Item(ModContent.ItemType<CatEars>()) };
-			}
 
 			return Enumerable.Empty<Item>();
 		}
